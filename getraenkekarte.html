@@ -25,7 +25,7 @@
   /* Kopfzeile */
   header{text-align:center;padding:64px 22px 30px;}
   .brand{font-family:'Bebas Neue',Impact,'Arial Black',sans-serif;font-size:clamp(3rem,10vw,6.5rem);
-    letter-spacing:.1em;color:var(--lightest);
+    letter-spacing:.1em;color:var(--lightest);text-decoration:none;
     text-shadow:0 0 18px rgba(242,233,255,.5),0 0 50px rgba(157,113,232,.9);}
   .slogan{font-size:1.15rem;color:var(--light);letter-spacing:.06em;margin-top:4px;}
   .slogan em{color:var(--glow);}
@@ -96,13 +96,14 @@
 <body>
 
 <header class="wrap">
-  <div class="brand">NOX BAR</div>
+  <a href="index.html" class="brand">NOX BAR</a>
   <div class="slogan" data-t="slogan">Die Nacht gehört dir. · <em>Own the night.</em></div>
   <div class="rule"></div>
   <div class="toolbar">
     <button data-lang="de" class="active">DE</button>
     <button data-lang="en">EN</button>
     <button data-lang="tr">TR</button>
+    <button data-lang="ru">RU</button>
     <button onclick="window.print()">🖨 Drucken / PDF</button>
   </div>
 </header>

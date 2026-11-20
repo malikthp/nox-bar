@@ -37,7 +37,14 @@ function writeJson(file, data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2), "utf8");
 }
 function reservations() { return readJson(RES_FILE, { reservations: [] }); }
-const DEFAULT_QA = require("../assets/nox-default-qa");
+let DEFAULT_QA = [];
+for (const candidate of ["../assets/nox-default-qa", "../nox-default-qa"]) {
+  try { DEFAULT_QA = require(candidate); break; }
+  catch (e) { /* nächsten Pfad versuchen */ }
+}
+if (!DEFAULT_QA.length) {
+  console.warn("[Warnung] nox-default-qa.js weder in assets/ noch im Root gefunden – Starte ohne Standardwissen.");
+}
 function learning() {
   const data = readJson(LEARN_FILE, null);
   // Beim ersten Start (oder leerer Datei) das mitgelieferte Standardwissen laden
