@@ -45,15 +45,15 @@
 
   <!-- NOX BAR – wie im Beispiel -->
   <g text-anchor="middle">
-    <text x="1920" y="820" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
+    <text x="1920" y="1180" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
           font-size="430" letter-spacing="6" fill="#9D71E8" filter="url(#softGlow)" opacity="0.75">NOX BAR</text>
-    <text x="1920" y="820" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
+    <text x="1920" y="1180" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
           font-size="430" letter-spacing="6" fill="#F2E9FF">NOX BAR</text>
 
-    <text x="1920" y="1260" font-family="Arial,'Helvetica Neue',sans-serif"
+    <text x="1920" y="1620" font-family="Arial,'Helvetica Neue',sans-serif"
           font-size="150" font-weight="300" letter-spacing="2" fill="#E8DFF7">Die Nacht gehört dir.</text>
 
-    <text x="1920" y="1430" font-family="Arial,'Helvetica Neue',sans-serif"
+    <text x="1920" y="1790" font-family="Arial,'Helvetica Neue',sans-serif"
           font-size="74" font-style="italic" letter-spacing="2" fill="#C9B8E8" opacity="0.85">Own the night.</text>
   </g>
 </svg>
