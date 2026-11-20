@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOX Bar – Flyer (DIN A4)</title>
+<style>
+  :root{
+    --bg:#0B0720; --surface:#25134D; --accent:#6A2FCB;
+    --glow:#9D71E8; --light:#D1B8FF; --lightest:#F2E9FF;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Inter",Arial,sans-serif;
+    background:#1b1b22;
+    display:flex;flex-direction:column;align-items:center;
+    padding:32px 16px;gap:18px;
+  }
+  .toolbar{
+    display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;
+    color:var(--lightest);font-size:14px;
+  }
+  .toolbar button{
+    background:linear-gradient(135deg,var(--accent),var(--glow));
+    color:#fff;border:none;border-radius:999px;padding:10px 20px;
+    font:inherit;font-weight:600;cursor:pointer;
+    box-shadow:0 0 18px rgba(157,113,232,.5);
+  }
+  .toolbar button:hover{filter:brightness(1.15);}
+  .page{
+    width:210mm;height:297mm;
+    background:
+      radial-gradient(circle at 25% 18%,rgba(106,47,203,.5),transparent 42%),
+      radial-gradient(circle at 82% 78%,rgba(157,113,232,.32),transparent 48%),
+      linear-gradient(160deg,#0B0720,#150A33 55%,#25134D);
+    color:var(--lightest);
+    position:relative;overflow:hidden;
+    padding:20mm 16mm;
+    display:flex;flex-direction:column;
+    box-shadow:0 25px 70px rgba(0,0,0,.6);
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  /* dezente Punkte */
+  .page::before{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(209,184,255,.22) 1px,transparent 1px);
+    background-size:14px 14px;opacity:.5;pointer-events:none;
+  }
+  .page > *{position:relative;z-index:1;}
+  .logo{
+    font-weight:800;letter-spacing:.18em;font-size:13pt;
+    text-shadow:0 0 16px rgba(157,113,232,.8);
+  }
+  .logo span{color:var(--glow);}
+  .kicker{
+    margin-top:auto;font-size:10pt;letter-spacing:.24em;text-transform:uppercase;
+    color:var(--glow);font-weight:700;
+  }
+  h1{
+    font-size:46pt;line-height:.95;letter-spacing:.05em;margin:10px 0 14px;
+    text-shadow:0 0 18px rgba(242,233,255,.55),0 0 48px rgba(157,113,232,.8);
+  }
+  h1 em{display:block;font-style:normal;color:var(--glow);font-size:26pt;letter-spacing:.14em;}
+  .lead{font-size:12pt;color:var(--light);max-width:145mm;line-height:1.5;}
+  .line{width:60px;height:2px;background:var(--glow);box-shadow:0 0 12px var(--glow);margin:18px 0;}
+  ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:9px 18px;margin-bottom:auto;}
+  li{font-size:10.5pt;color:var(--lightest);display:flex;gap:8px;align-items:center;}
+  li::before{content:"✦";color:var(--glow);text-shadow:0 0 8px var(--glow);}
+  .bottom{
+    border-top:1px solid rgba(157,113,232,.35);padding-top:14px;
+    display:flex;justify-content:space-between;align-items:flex-end;gap:16px;
+  }
+  .bottom strong{font-size:13pt;letter-spacing:.08em;color:var(--lightest);}
+  .bottom small{display:block;color:var(--light);font-size:9pt;line-height:1.7;margin-top:5px;}
+  .star{width:34mm;height:34mm;flex:0 0 34mm;filter:drop-shadow(0 0 12px rgba(157,113,232,.85));}
+  @page{size:A4;margin:0;}
+  @media print{
+    body{background:none;padding:0;}
+    .toolbar{display:none;}
+    .page{box-shadow:none;width:210mm;height:297mm;margin:0;}
+  }
+</style>
+</head>
+<body>
+  <div class="toolbar">
+    <span>NOX Bar · Flyer DIN A4</span>
+    <button onclick="window.print()">🖨 Als PDF / Flyer drucken</button>
+  </div>
+
+  <div class="page">
+    <div class="logo">NOX<span>.</span>BAR</div>
+
+    <div class="kicker">Kyrenia · Nordzypern</div>
+    <h1>DIE NACHT<br>GEHÖRT DIR<em>NOX BAR</em></h1>
+    <p class="lead">Atmosphäre, Musik und Drinks, die bleiben. Wo die Nacht lebendig wird – mitten in Kyrenia.</p>
+    <div class="line"></div>
+
+    <ul>
+      <li>Cocktails & eigene Kreationen</li>
+      <li>Live-DJs & gute Vibes</li>
+      <li>Glow-Atmosphäre</li>
+      <li>Events & besondere Nächte</li>
+      <li>Tischreservierung möglich</li>
+      <li>Täglich 17:00 – 05:00 Uhr</li>
+    </ul>
+
+    <div class="bottom">
+      <div>
+        <strong>Besuch uns!</strong>
+        <small>Inhaber: Imran Malik<br>Kyrenia, Nordzypern<br>E-Mail: hello@nox-kyrenia.com</small>
+      </div>
+      <svg class="star" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <linearGradient id="gradFlyer" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F2E9FF"/><stop offset="60%" stop-color="#D1B8FF"/><stop offset="100%" stop-color="#B98BEE"/></linearGradient>
+          <filter id="softFlyer" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.5"/></filter>
+        </defs>
+        <path d="M50 9 L61 36 L90 38 L68 57 L75 86 L50 70 L25 86 L32 57 L10 38 L39 36 Z" fill="#9D71E8" opacity=".4" filter="url(#softFlyer)"/>
+        <g fill="#F2E9FF" opacity=".85"><circle cx="50" cy="10" r="4"/><circle cx="89" cy="38" r="4"/><circle cx="75" cy="85" r="4"/><circle cx="25" cy="85" r="4"/><circle cx="11" cy="38" r="4"/></g>
+        <path d="M16 13 L18 19 L24 21 L18 23 L16 29 L14 23 L8 21 L14 19 Z" fill="#9D71E8" opacity=".85"/>
+        <path d="M50 9 L61 36 L90 38 L68 57 L75 86 L50 70 L25 86 L32 57 L10 38 L39 36 Z" fill="url(#gradFlyer)" stroke="#9D71E8" stroke-width="9" stroke-linejoin="round"/>
+        <ellipse cx="39" cy="33" rx="9" ry="4.5" transform="rotate(-25 39 33)" fill="#fff" opacity=".35"/>
+        <ellipse cx="41" cy="50" rx="4.8" ry="6.2" fill="#25134D"/><ellipse cx="59" cy="50" rx="4.8" ry="6.2" fill="#25134D"/>
+        <circle cx="42.4" cy="47.4" r="1.9" fill="#fff"/><circle cx="60.4" cy="47.4" r="1.9" fill="#fff"/>
+        <ellipse cx="30" cy="60" rx="6" ry="3.4" fill="#E39AD9" opacity=".65"/><ellipse cx="70" cy="60" rx="6" ry="3.4" fill="#E39AD9" opacity=".65"/>
+        <path d="M45 60 Q50 66 55 60" fill="none" stroke="#25134D" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+</body>
+</html>

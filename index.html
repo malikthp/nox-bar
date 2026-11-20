@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOX BAR &amp; LOUNGE — Die Nacht gehört dir | Kyrenia, Nordzypern</title>
+<meta name="description" content="Premium Dark Nightlife Cocktail Bar & Lounge in Kyrenia, Nordzypern. Täglich 17:00 – 05:00 Uhr. Inhaber Imran Malik.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3e%3crect width='100' height='100' fill='%230B0720'/%3e%3ctext x='50' y='68' font-family='Arial Black,sans-serif' font-size='62' font-weight='700' fill='%239D71E8' text-anchor='middle'%3eN%3c/text%3e%3c/svg%3e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Bebas+Neue&amp;display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN-TOKENS – NOX Bar Palette
+   ============================================================ */
+:root{
+  --bg:#0B0720;
+  --bg-secondary:#070414;
+  --bg-tertiary:#25134D;
+  --bg-card:linear-gradient(135deg,rgba(37,19,77,.55) 0%,rgba(11,7,32,.92) 100%);
+  --bg-footer:linear-gradient(180deg,transparent 0%,rgba(37,19,77,.45) 100%);
+  --text-primary:#F2E9FF;
+  --text-secondary:rgba(242,233,255,.72);
+  --accent:#6A2FCB;
+  --accent-glow:rgba(157,113,232,.55);
+  --glow:#9D71E8;
+  --light:#D1B8FF;
+  --gold:#FFD27A;
+  --gold-glow:rgba(255,210,122,.45);
+  --border:rgba(157,113,232,.35);
+  --nav-bg:rgba(11,7,32,.92);
+  --form-bg:rgba(11,7,32,.75);
+  --dropdown-bg:rgba(11,7,32,.98);
+}
+[data-theme="light"]{
+  --bg:#F2E9FF;
+  --bg-secondary:#ffffff;
+  --bg-tertiary:#D1B8FF;
+  --bg-card:linear-gradient(135deg,rgba(255,255,255,.92) 0%,rgba(242,233,255,.95) 100%);
+  --bg-footer:linear-gradient(180deg,transparent 0%,rgba(209,184,255,.55) 100%);
+  --text-primary:#25134D;
+  --text-secondary:rgba(37,19,77,.72);
+  --accent:#6A2FCB;
+  --accent-glow:rgba(106,47,203,.3);
+  --glow:#7B3FD6;
+  --light:#5A2A9A;
+  --gold:#9A6B00;
+  --gold-glow:rgba(154,107,0,.3);
+  --border:rgba(106,47,203,.3);
+  --nav-bg:rgba(242,233,255,.94);
+  --form-bg:rgba(255,255,255,.9);
+  --dropdown-bg:rgba(242,233,255,.99);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
+  background:radial-gradient(ellipse at top,var(--bg-tertiary) 0%,var(--bg) 62%);
+  color:var(--text-primary);overflow-x:hidden;line-height:1.8;
+  transition:background .3s ease,color .3s ease;
+}
+h1,h2,h3,h4,h5,h6{font-family:'Bebas Neue',Impact,'Arial Black',sans-serif;font-weight:700;letter-spacing:4px;line-height:1.05;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--accent),var(--gold));border-radius:10px;}
+
+/* Ganzseitiger, animierter Hintergrund */
+#particles-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
+.aurora{position:fixed;inset:0;overflow:hidden;z-index:0;pointer-events:none;}
+.aurora span{position:absolute;display:block;border-radius:50%;filter:blur(90px);opacity:.32;mix-blend-mode:screen;will-change:transform;}
+.aurora span:nth-child(1){width:50vw;height:50vw;top:-18%;left:-12%;background:radial-gradient(circle,#6A2FCB,transparent 70%);animation:aurora1 26s ease-in-out infinite alternate;}
+.aurora span:nth-child(2){width:44vw;height:44vw;bottom:-20%;right:-12%;background:radial-gradient(circle,#9D71E8,transparent 70%);animation:aurora2 32s ease-in-out infinite alternate;}
+.aurora span:nth-child(3){width:38vw;height:38vw;top:35%;left:45%;background:radial-gradient(circle,#25134D,transparent 70%);animation:aurora3 22s ease-in-out infinite alternate;}
+.aurora span:nth-child(4){width:30vw;height:30vw;top:-5%;right:20%;background:radial-gradient(circle,#D1B8FF,transparent 70%);opacity:.18;animation:aurora2 38s ease-in-out infinite alternate-reverse;}
+[data-theme="light"] .aurora span{mix-blend-mode:multiply;opacity:.16;}
+@keyframes aurora1{0%{transform:translate(0,0) scale(1);}50%{transform:translate(18vw,10vh) scale(1.15);}100%{transform:translate(-8vw,22vh) scale(.95);}}
+@keyframes aurora2{0%{transform:translate(0,0) scale(1.05);}50%{transform:translate(-22vw,-12vh) scale(.9);}100%{transform:translate(10vw,-20vh) scale(1.2);}}
+@keyframes aurora3{0%{transform:translate(0,0) scale(.9);}100%{transform:translate(-30vw,15vh) scale(1.25);}}
+main,footer,nav,.chat-widget{position:relative;z-index:1;}
+
+/* Navigation */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 5%;height:48px;display:flex;justify-content:space-between;align-items:center;transition:background .5s,backdrop-filter .5s,box-shadow .5s;background:transparent;}
+nav.scrolled{background:var(--nav-bg);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);box-shadow:0 4px 30px var(--accent-glow);}
+.nav-left{display:flex;align-items:center;gap:2rem;}
+.logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.8rem;letter-spacing:6px;color:var(--text-primary);text-shadow:0 0 20px var(--accent-glow),0 0 40px var(--accent-glow);transition:.3s;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--text-primary);text-decoration:none;font-size:.75rem;letter-spacing:1px;opacity:.8;transition:.3s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s;box-shadow:0 0 10px var(--accent-glow);}
+.nav-links a:hover{opacity:1;text-shadow:0 0 10px var(--accent-glow);}
+.nav-links a:hover::after{width:100%;}
+.nav-right{display:flex;align-items:center;gap:1rem;}
+.theme-toggle{background:transparent;border:1px solid var(--border);color:var(--text-primary);width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;font-size:1rem;}
+.theme-toggle:hover{border-color:var(--accent);box-shadow:0 0 15px var(--accent-glow);}
+.lang-switcher{position:relative;}
+.lang-btn{display:flex;align-items:center;gap:.4rem;background:transparent;color:var(--text-primary);border:1px solid var(--border);padding:.4rem .7rem;font-size:.7rem;letter-spacing:1px;cursor:pointer;transition:.3s;font-family:inherit;}
+.lang-btn:hover{border-color:var(--accent);box-shadow:0 0 15px var(--accent-glow);}
+.lang-dropdown{position:absolute;top:calc(100% + 8px);right:0;background:var(--dropdown-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border);list-style:none;display:none;min-width:130px;box-shadow:0 10px 40px var(--accent-glow);}
+.lang-dropdown.active{display:block;}
+.lang-dropdown li{padding:.6rem .9rem;font-size:.7rem;letter-spacing:1px;cursor:pointer;transition:.2s;opacity:.8;color:var(--text-primary);}
+.lang-dropdown li:hover{background:rgba(157,113,232,.2);opacity:1;}
+.lang-dropdown li.active{color:var(--gold);opacity:1;}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;}
+.hamburger span{width:18px;height:1px;background:var(--text-primary);transition:.3s;}
+
+/* Hero */
+.hero{position:relative;height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;padding:0 1.5rem;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(120% 120% at 50% 0%,rgba(157,113,232,.25) 0%,transparent 65%);}
+.hero-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1rem;width:100%;max-width:1000px;}
+.hero-eyebrow{font-size:clamp(.8rem,1vw,.95rem);color:var(--text-secondary);letter-spacing:3px;text-transform:uppercase;opacity:0;transform:translateY(20px);animation:fade-up 1.2s cubic-bezier(.25,.1,.25,1) .2s forwards;}
+.hero-title{font-size:clamp(4rem,15vw,14rem);font-weight:700;letter-spacing:clamp(4px,2vw,12px);text-transform:uppercase;text-shadow:0 0 30px var(--accent-glow),0 0 60px var(--accent-glow),0 0 90px var(--accent-glow);animation:neonPulse 4s ease-in-out infinite,fade-up 1.4s cubic-bezier(.25,.1,.25,1) .4s forwards;opacity:0;transform:translateY(40px);}
+@keyframes neonPulse{0%,100%{text-shadow:0 0 30px var(--accent-glow),0 0 60px var(--accent-glow),0 0 90px var(--accent-glow);}50%{text-shadow:0 0 40px var(--accent-glow),0 0 80px var(--accent-glow),0 0 120px var(--accent-glow),0 0 160px var(--accent-glow);}}
+.hero-subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(1.3rem,3.5vw,2.6rem);font-weight:300;letter-spacing:clamp(2px,1vw,4px);margin-top:-1rem;opacity:0;transform:translateY(30px);animation:fade-up 1.4s cubic-bezier(.25,.1,.25,1) .6s forwards;}
+.hero-subtitle-en{font-family:'DM Sans',sans-serif;font-size:clamp(.9rem,1.8vw,1.25rem);color:var(--text-secondary);font-style:italic;letter-spacing:clamp(2px,1vw,3px);opacity:0;transform:translateY(30px);animation:fade-up 1.4s cubic-bezier(.25,.1,.25,1) .8s forwards;}
+.hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;opacity:0;transform:translateY(30px);animation:fade-up 1.4s cubic-bezier(.25,.1,.25,1) 1s forwards;}
+.btn{display:inline-flex;align-items:center;gap:.4rem;padding:.8rem 2rem;text-decoration:none;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;transition:all .4s cubic-bezier(.25,.1,.25,1);position:relative;overflow:hidden;white-space:nowrap;}
+.btn-primary{background:transparent;color:var(--text-primary);border:2px solid var(--accent);box-shadow:0 0 30px var(--accent-glow);}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--accent) 0%,var(--glow) 100%);opacity:0;transition:opacity .4s;}
+.btn-primary span{position:relative;z-index:1;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 50px var(--accent-glow),0 0 80px var(--accent-glow);}
+.btn-primary:hover::before{opacity:1;}
+.btn-ghost{color:var(--text-primary);border:1px solid var(--border);}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);box-shadow:0 0 20px var(--gold-glow);}
+@keyframes fade-up{to{opacity:1;transform:translateY(0);}}
+
+/* Sections */
+section{padding:clamp(5rem,12vw,10rem) 5%;}
+.section-header{max-width:980px;margin:0 auto clamp(3rem,8vw,6rem);text-align:center;display:flex;flex-direction:column;gap:1rem;}
+.section-eyebrow{color:var(--glow);font-size:clamp(.85rem,1vw,.95rem);letter-spacing:4px;text-transform:uppercase;text-shadow:0 0 10px var(--accent-glow);}
+.section-title{font-size:clamp(2.5rem,9vw,6rem);letter-spacing:clamp(4px,2vw,8px);text-shadow:0 0 30px var(--accent-glow);}
+.section-subtitle{font-family:'DM Sans',sans-serif;font-size:clamp(1rem,2vw,1.5rem);color:var(--text-secondary);max-width:760px;margin:0 auto;font-weight:300;}
+.reveal{opacity:0;transform:translateY(60px);transition:opacity 1s cubic-bezier(.25,.1,.25,1),transform 1s cubic-bezier(.25,.1,.25,1);}
+.reveal.in-view{opacity:1;transform:translateY(0);}
+
+/* Cards */
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(.8rem,1.5vw,1.2rem);max-width:1380px;margin:0 auto;}
+.card{position:relative;grid-column:span 12;border-radius:12px;overflow:hidden;background:var(--bg-card);border:2px solid var(--border);min-height:clamp(380px,65vw,560px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.8rem,5vw,3.5rem);transition:transform .8s, border-color .8s, box-shadow .8s;box-shadow:0 0 30px var(--accent-glow);}
+@media(min-width:880px){.card-half{grid-column:span 6;}}
+.card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 0 50px var(--accent-glow),0 0 70px var(--gold-glow);}
+.card-content{display:flex;flex-direction:column;gap:.7rem;max-width:640px;}
+.card-eyebrow{color:var(--glow);font-size:clamp(.85rem,1vw,.95rem);letter-spacing:3px;text-transform:uppercase;text-shadow:0 0 10px var(--accent-glow);}
+.card-title{font-size:clamp(2.2rem,5vw,4rem);letter-spacing:clamp(3px,1.5vw,6px);color:var(--text-primary);}
+.card-text{font-family:'DM Sans',sans-serif;font-size:clamp(.95rem,1.4vw,1.1rem);color:var(--text-secondary);}
+
+/* Drinks / Events */
+.drinks-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(.8rem,1.5vw,1.2rem);max-width:1380px;margin:0 auto;}
+.drink{position:relative;grid-column:span 12;border-radius:12px;border:2px solid var(--border);background:var(--bg-card);padding:clamp(1.8rem,4.5vw,3rem);display:flex;flex-direction:column;gap:.9rem;transition:transform .8s,border-color .8s,box-shadow .8s;box-shadow:0 0 25px var(--accent-glow);overflow:hidden;}
+@media(min-width:720px){.drink-third{grid-column:span 4;}.drink-half{grid-column:span 6;}}
+.drink:hover{transform:translateY(-6px) scale(1.01);border-color:var(--gold);box-shadow:0 0 40px var(--accent-glow),0 0 60px var(--gold-glow);}
+.drink-header{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;}
+.drink-title{font-size:clamp(1.6rem,3.5vw,2.5rem);letter-spacing:clamp(2px,1vw,4px);color:var(--text-primary);text-shadow:0 0 15px var(--accent-glow);}
+.drink-number{font-family:'Bebas Neue',sans-serif;color:var(--glow);opacity:.55;font-size:clamp(1.8rem,3.5vw,2.6rem);letter-spacing:2px;}
+.drink-text{font-family:'DM Sans',sans-serif;color:var(--text-secondary);font-size:clamp(.95rem,1.3vw,1rem);}
+
+/* Promo-Banner mit goldenem Glow */
+.promo-section{padding-top:0;padding-bottom:0;}
+.promo-banner{position:relative;display:flex;align-items:center;justify-content:space-between;gap:2rem;max-width:1380px;margin:0 auto;padding:clamp(2rem,5vw,3.5rem);border-radius:16px;border:2px solid var(--border);background:var(--bg-card);overflow:hidden;text-decoration:none;color:var(--text-primary);transition:border-color .4s,box-shadow .4s,transform .4s;}
+.promo-banner::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(209,184,255,.18) 1px,transparent 1px);background-size:18px 18px;opacity:.5;pointer-events:none;}
+.promo-banner>*{position:relative;z-index:1;}
+.promo-banner:hover{transform:translateY(-5px);border-color:var(--gold);box-shadow:0 0 0 2px var(--gold-glow),0 0 45px var(--gold-glow),0 0 110px rgba(255,193,90,.3),inset 0 0 60px rgba(255,193,90,.1);}
+.promo-kicker{font-family:'DM Sans',sans-serif;color:var(--gold);font-size:.8rem;letter-spacing:4px;text-transform:uppercase;font-weight:600;}
+.promo-title{font-size:clamp(1.8rem,5vw,3.4rem);letter-spacing:clamp(2px,1.5vw,5px);margin:.5rem 0;}
+.promo-text p{font-family:'DM Sans',sans-serif;color:var(--text-secondary);font-size:clamp(.9rem,1.5vw,1.05rem);}
+.promo-cta{flex:0 0 auto;display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.8rem;border-radius:999px;background:linear-gradient(135deg,#C9912F,var(--gold));color:#2A1A00;font-family:'DM Sans',sans-serif;font-weight:700;letter-spacing:1px;font-size:.85rem;text-transform:uppercase;box-shadow:0 0 22px var(--gold-glow);transition:.3s;}
+.promo-banner:hover .promo-cta{transform:scale(1.04);box-shadow:0 0 45px var(--gold-glow);}
+
+/* Reservation */
+.reservation{text-align:center;}
+.form-wrapper{max-width:880px;margin:0 auto;border-radius:12px;border:2px solid var(--border);background:var(--bg-card);padding:clamp(1.8rem,7vw,5rem);display:flex;flex-direction:column;gap:2rem;box-shadow:0 0 40px var(--accent-glow);}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(.9rem,1.8vw,1.3rem);}
+.form-group{display:flex;flex-direction:column;gap:.5rem;text-align:left;}
+.form-group.full{grid-column:1/-1;}
+.form-group label{font-family:'DM Sans',sans-serif;font-size:.85rem;letter-spacing:1px;color:var(--text-primary);}
+.form-group input,.form-group select,.form-group textarea{width:100%;border-radius:4px;border:1px solid var(--border);background:var(--form-bg);color:var(--text-primary);font-family:'DM Sans',sans-serif;font-size:.95rem;padding:.8rem 1rem;transition:.3s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 20px var(--accent-glow);}
+.form-group textarea{min-height:120px;resize:vertical;}
+.submit{align-self:center;border:none;cursor:pointer;font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:3px;}
+.form-note{font-family:'DM Sans',sans-serif;font-size:.85rem;color:var(--gold);text-shadow:0 0 12px var(--gold-glow);text-align:center;}
+.form-note a{color:var(--gold);text-decoration:underline;}
+
+/* Footer */
+footer{border-top:2px solid var(--border);padding:clamp(2.5rem,7vw,4rem) 5% clamp(1.8rem,5vw,2.5rem);background:var(--bg-footer);transition:.3s;}
+.footer-top{max-width:1380px;margin:0 auto;display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(1.8rem,5vw,3rem);}
+.footer-brand{grid-column:1/-1;display:flex;flex-direction:column;gap:.7rem;}
+@media(min-width:880px){.footer-brand{grid-column:1/7;}.footer-column{grid-column:span 2;}}
+.footer-logo{font-family:'Bebas Neue',Impact,sans-serif;font-size:2.2rem;letter-spacing:8px;color:var(--text-primary);text-shadow:0 0 20px var(--accent-glow);}
+.footer-text{font-family:'DM Sans',sans-serif;color:var(--text-secondary);font-size:.95rem;}
+.footer-column{grid-column:span 6;display:flex;flex-direction:column;gap:.9rem;}
+.footer-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:3px;color:var(--glow);text-shadow:0 0 10px var(--accent-glow);}
+.footer-list{display:flex;flex-direction:column;gap:.6rem;list-style:none;}
+.footer-list a{font-family:'DM Sans',sans-serif;color:var(--text-secondary);text-decoration:none;font-size:.93rem;transition:.3s;}
+.footer-list a:hover{color:var(--text-primary);text-shadow:0 0 10px var(--accent-glow);padding-left:4px;}
+.footer-bottom{max-width:1380px;margin:clamp(2.5rem,7vw,4rem) auto 0;padding-top:clamp(1.3rem,3.5vw,1.8rem);border-top:1px solid var(--border);text-align:center;display:flex;flex-direction:column;gap:.3rem;}
+.footer-slogan{font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:4px;color:var(--text-primary);text-shadow:0 0 25px var(--accent-glow);}
+.footer-slogan-en{font-family:'DM Sans',sans-serif;color:var(--text-secondary);font-style:italic;letter-spacing:2px;font-size:.95rem;}
+
+/* ============================================================
+   CHATBOT – Noxi, der flauschige Stern
+   ============================================================ */
+.chat-widget{position:fixed;bottom:26px;right:26px;z-index:2000;}
+.chat-launcher{position:relative;width:78px;height:78px;border:none;border-radius:50%;cursor:pointer;background:radial-gradient(circle at 35% 28%,#F2E9FF,#D1B8FF 70%,#9D71E8);box-shadow:0 0 0 6px rgba(157,113,232,.12),0 0 28px rgba(157,113,232,.55),0 14px 34px rgba(106,47,203,.5),inset 0 -8px 14px rgba(106,47,203,.18);display:flex;align-items:center;justify-content:center;padding:0;transition:transform .25s,box-shadow .25s;}
+.chat-launcher:hover{transform:scale(1.08);box-shadow:0 0 0 8px rgba(157,113,232,.16),0 0 42px rgba(157,113,232,.8),0 16px 40px rgba(106,47,203,.6);}
+.chat-mascot{display:block;width:60px;height:60px;animation:mascot-float 3.4s ease-in-out infinite;filter:drop-shadow(0 3px 4px rgba(37,19,77,.3));}
+.chat-mascot svg{width:100%;height:100%;display:block;}
+.chat-mascot .eyes{transform-origin:50px 50px;animation:blink 5.5s infinite;}
+.chat-mascot .mouth{animation:smile 3.4s ease-in-out infinite;}
+@keyframes mascot-float{0%,100%{transform:translateY(0) rotate(-2deg) scale(1);}50%{transform:translateY(-4px) rotate(2deg) scale(1.03);}}
+@keyframes blink{0%,92%,100%{transform:scaleY(1);}95%{transform:scaleY(.1);}}
+@keyframes smile{0%,100%{transform:scaleY(1);}50%{transform:scaleY(1.25);}}
+.chat-badge{position:absolute;top:-4px;right:-4px;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#6A2FCB,#9D71E8);border:2px solid var(--bg);display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 0 14px rgba(157,113,232,.7);animation:badge-bounce 2.6s ease-in-out infinite;}
+@keyframes badge-bounce{0%,100%{transform:translateY(0) rotate(-8deg);}50%{transform:translateY(-3px) rotate(8deg);}}
+.chat-panel{position:absolute;bottom:96px;right:0;width:min(360px,calc(100vw - 32px));height:min(540px,calc(100vh - 140px));display:flex;flex-direction:column;overflow:hidden;background:linear-gradient(160deg,rgba(37,19,77,.98),rgba(11,7,32,.99));border:1px solid var(--border);border-radius:22px;box-shadow:0 0 45px rgba(157,113,232,.35),0 22px 55px rgba(0,0,0,.55);opacity:0;transform:translateY(16px) scale(.95);transform-origin:bottom right;pointer-events:none;transition:opacity .3s,transform .3s;}
+.chat-panel.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+.chat-header{display:flex;align-items:center;gap:12px;padding:16px 18px;background:linear-gradient(135deg,rgba(106,47,203,.55),rgba(157,113,232,.2));border-bottom:1px solid var(--border);}
+.chat-avatar{width:42px;height:42px;flex:0 0 42px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#F2E9FF,#D1B8FF 75%);box-shadow:0 0 16px rgba(157,113,232,.6);overflow:hidden;display:flex;align-items:center;justify-content:center;}
+.chat-avatar svg{width:40px;height:40px;}
+.chat-header-text{flex:1;line-height:1.25;}
+.chat-header-text strong{display:block;font-size:1rem;color:var(--text-primary);letter-spacing:.02em;}
+.chat-header-text span{font-size:.75rem;color:var(--text-secondary);}
+.online-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7CE0A8;box-shadow:0 0 8px #7CE0A8;margin-right:5px;}
+.chat-close{background:rgba(255,255,255,.07);border:1px solid var(--border);color:var(--text-primary);width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1.1rem;line-height:1;transition:.2s;}
+.chat-close:hover{background:rgba(157,113,232,.3);transform:rotate(90deg);}
+.chat-messages{flex:1;overflow-y:auto;padding:20px 16px;display:flex;flex-direction:column;gap:12px;scrollbar-width:thin;scrollbar-color:var(--accent) transparent;}
+.chat-messages::-webkit-scrollbar{width:6px;}
+.chat-messages::-webkit-scrollbar-thumb{background:var(--accent);border-radius:6px;}
+.chat-bubble{max-width:84%;padding:11px 15px;border-radius:16px;font-size:.88rem;line-height:1.5;white-space:pre-line;animation:bubble-in .3s ease both;}
+@keyframes bubble-in{from{opacity:0;transform:translateY(8px) scale(.97);}to{opacity:1;transform:translateY(0) scale(1);}}
+.chat-bubble.bot{align-self:flex-start;background:rgba(157,113,232,.16);border:1px solid var(--border);border-bottom-left-radius:5px;color:var(--text-primary);}
+.chat-bubble.user{align-self:flex-end;background:linear-gradient(135deg,var(--accent),#7B43D6);border-bottom-right-radius:5px;color:#fff;box-shadow:0 0 18px var(--accent-glow);}
+.typing{display:flex;gap:5px;padding:14px 16px;align-self:flex-start;}
+.typing span{width:7px;height:7px;border-radius:50%;background:var(--glow);animation:typing-bounce 1.1s infinite ease-in-out;}
+.typing span:nth-child(2){animation-delay:.15s;}
+.typing span:nth-child(3){animation-delay:.3s;}
+@keyframes typing-bounce{0%,60%,100%{transform:translateY(0);opacity:.5;}30%{transform:translateY(-5px);opacity:1;}}
+.chat-quick{display:flex;gap:7px;padding:0 14px 12px;overflow-x:auto;scrollbar-width:none;}
+.chat-quick::-webkit-scrollbar{display:none;}
+.chat-quick button{flex:0 0 auto;background:rgba(157,113,232,.12);border:1px solid var(--border);color:var(--text-primary);border-radius:999px;padding:7px 13px;font-size:.75rem;cursor:pointer;transition:.2s;}
+.chat-quick button:hover{background:rgba(157,113,232,.28);border-color:var(--glow);}
+.chat-input{display:flex;gap:8px;padding:12px 14px 16px;border-top:1px solid var(--border);background:rgba(11,7,32,.35);}
+.chat-input input{flex:1;min-width:0;background:rgba(209,184,255,.08);border:1px solid var(--border);border-radius:999px;padding:11px 16px;color:var(--text-primary);font:inherit;font-size:.85rem;outline:none;transition:.2s;}
+.chat-input input::placeholder{color:var(--text-secondary);opacity:.7;}
+.chat-input input:focus{border-color:var(--glow);box-shadow:0 0 14px var(--accent-glow);}
+.chat-send{width:42px;height:42px;flex:0 0 42px;border:none;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--glow));color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 16px var(--accent-glow);transition:.2s;}
+.chat-send:hover{transform:scale(1.08);box-shadow:0 0 26px var(--accent-glow);}
+.chat-send svg{width:19px;height:19px;}
+
+/* Responsive */
+@media(max-width:1100px){.nav-links{gap:1.5rem;}.nav-links a{font-size:.72rem;}}
+@media(max-width:980px){
+  .nav-links{position:fixed;top:48px;right:-100%;width:100%;height:calc(100svh - 48px);background:var(--dropdown-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;transition:right .6s cubic-bezier(.28,.11,.32,1);}
+  .nav-links.active{right:0;}
+  .nav-links a{font-size:1rem;}
+  .hamburger{display:flex;}
+  .hamburger.active span:nth-child(1){transform:translateY(5px) rotate(45deg);}
+  .hamburger.active span:nth-child(2){opacity:0;}
+  .hamburger.active span:nth-child(3){transform:translateY(-5px) rotate(-45deg);}
+  .form-grid{grid-template-columns:1fr;}
+  .promo-banner{flex-direction:column;align-items:flex-start;}
+}
+@media(max-width:640px){
+  .hero-cta{flex-direction:column;width:100%;padding:0 1rem;}
+  .btn{width:100%;justify-content:center;}
+  .nav-right{gap:.7rem;}
+  .lang-btn{padding:.4rem .6rem;font-size:.68rem;}
+  .drink-header{flex-direction:column;align-items:flex-start;}
+  .chat-widget{bottom:16px;right:16px;}
+  .chat-launcher{width:68px;height:68px;}
+  .chat-mascot{width:52px;height:52px;}
+  .chat-panel{bottom:84px;height:min(500px,calc(100vh - 110px));}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important;}
+  .reveal{opacity:1;transform:none;}
+  .chat-mascot,.chat-mascot .eyes,.chat-mascot .mouth,.chat-badge{animation:none;}
+}
+</style>
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+<canvas id="particles-canvas" aria-hidden="true"></canvas>
+
+<nav id="navbar">
+  <div class="nav-left">
+    <div class="logo">NOX BAR</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" data-i18n="nav_home">STARTSEITE</a></li>
+      <li><a href="#about" data-i18n="nav_about">DIE NACHT</a></li>
+      <li><a href="#drinks" data-i18n="nav_drinks">DRINKS</a></li>
+      <li><a href="getraenkekarte.html" data-i18n="nav_menu">GETRÄNKEKARTE</a></li>
+      <li><a href="speisekarte.html" data-i18n="nav_food">SPEISEKARTE</a></li>
+      <li><a href="#events" data-i18n="nav_events">EVENTS</a></li>
+      <li><a href="#reservation" data-i18n="nav_reservation">RESERVIERUNG</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">KONTAKT</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Design wechseln"><span id="themeIcon">🌙</span></button>
+    <div class="lang-switcher">
+      <button class="lang-btn" id="langBtn"><span id="currentLang">DE</span>
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+      </button>
+      <ul class="lang-dropdown" id="langDropdown">
+        <li data-lang="de" class="active">DEUTSCH</li>
+        <li data-lang="en">ENGLISH</li>
+        <li data-lang="tr">TÜRKÇE</li>
+        <li data-lang="ru">РУССКИЙ</li>
+      </ul>
+    </div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="hero-eyebrow" data-i18n="hero_eyebrow">Premium Dark Nightlife · Kyrenia, Nordzypern</p>
+      <h1 class="hero-title">NOX BAR</h1>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">Die Nacht gehört dir.</p>
+      <p class="hero-subtitle-en" data-i18n="hero_subtitle_en">Own the night.</p>
+      <div class="hero-cta">
+        <a href="#reservation" class="btn btn-primary"><span data-i18n="hero_btn_reserve">Tisch reservieren</span></a>
+        <a href="getraenkekarte.html" class="btn btn-ghost"><span data-i18n="hero_btn_drinks">Signature Drinks</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-i18n="about_eyebrow">Erlebnis</p>
+      <h2 class="section-title" data-i18n="about_title">DIE NACHT</h2>
+      <p class="section-subtitle" data-i18n="about_subtitle">NOX ist kein Ort. NOX ist ein Gefühl. Tauche ein in eine Welt, wo Licht nur existiert, um Schatten zu erschaffen.</p>
+    </div>
+    <div class="grid">
+      <article class="card reveal card-half">
+        <div class="card-content">
+          <p class="card-eyebrow" data-i18n="about_card1_eyebrow">Atmosphäre</p>
+          <h3 class="card-title" data-i18n="about_card1_title">Die Dunkelheit</h3>
+          <p class="card-text" data-i18n="about_card1_text">Hier verschmilzt die Nacht mit deiner Seele. Ein Raum, der nur zum Vergessen der Zeit existiert.</p>
+        </div>
+      </article>
+      <article class="card reveal card-half">
+        <div class="card-content">
+          <p class="card-eyebrow" data-i18n="about_card2_eyebrow">Sound</p>
+          <h3 class="card-title" data-i18n="about_card2_title">Der Beat</h3>
+          <p class="card-text" data-i18n="about_card2_text">Beats, die durch deine Adern pulsieren. Von Deep House bis Techno – jede Nacht eine neue Reise durch den Sound der Dunkelheit.</p>
+        </div>
+      </article>
+      <article class="card reveal">
+        <div class="card-content">
+          <p class="card-eyebrow" data-i18n="about_card3_eyebrow">Handwerk</p>
+          <h3 class="card-title" data-i18n="about_card3_title">Der Geschmack</h3>
+          <p class="card-text" data-i18n="about_card3_text">Cocktails, die Geschichten erzählen. Jeder Drink ist eine Komposition aus Kunst, Wissenschaft und purer Leidenschaft.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="drinks">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-i18n="drinks_eyebrow">Menü</p>
+      <h2 class="section-title" data-i18n="drinks_title">SIGNATURE DRINKS</h2>
+      <p class="section-subtitle" data-i18n="drinks_subtitle">Flüssige Kunst für die Nacht</p>
+    </div>
+    <div class="drinks-grid">
+      <article class="drink reveal drink-half"><div class="drink-header"><h3 class="drink-title">NOX</h3><span class="drink-number">01</span></div><p class="drink-text" data-i18n="drink1_text">Schwarze Johannisbeere · Premium Vodka · Aktivkohle · Zitrus. Tiefschwarz wie die Nacht selbst. Unser Signature Drink – dunkel, mysteriös, unvergesslich.</p></article>
+      <article class="drink reveal drink-half"><div class="drink-header"><h3 class="drink-title">Midnight Sun</h3><span class="drink-number">02</span></div><p class="drink-text" data-i18n="drink2_text">Bourbon · Hausgemachter Karamellsirup · Cold Brew Espresso · Vanille. Der Widerspruch in einem Glas – warm und dunkel, süß und bitter.</p></article>
+      <article class="drink reveal drink-third"><div class="drink-header"><h3 class="drink-title">Electric Violet</h3><span class="drink-number">03</span></div><p class="drink-text" data-i18n="drink3_text">Premium Gin · Butterfly Pea Flower Tea · Zitrone · Tonic. Farbwechselnd von Violett zu Pink – Magie in flüssiger Form.</p></article>
+      <article class="drink reveal drink-third"><div class="drink-header"><h3 class="drink-title">Dark Matter</h3><span class="drink-number">04</span></div><p class="drink-text" data-i18n="drink4_text">Mezcal · Schwarzes Sesam-Orgeat · Chili · Limette · Agave. Rauchig, würzig, gefährlich. Für die, die es intensiv mögen.</p></article>
+      <article class="drink reveal drink-third"><div class="drink-header"><h3 class="drink-title">The Last Round</h3><span class="drink-number">05</span></div><p class="drink-text" data-i18n="drink5_text">Single Malt Whisky. Auf Eis. Keine Erklärung nötig. Für Kenner, die wissen, was sie wollen.</p></article>
+    </div>
+    <div class="reveal" style="text-align:center; margin-top:44px;">
+      <a href="getraenkekarte.html" class="btn btn-ghost"><span data-i18n="drinks_full_menu">Zur kompletten Getränkekarte →</span></a>
+    </div>
+  </section>
+
+  <section id="events">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-i18n="events_eyebrow">Programm</p>
+      <h2 class="section-title" data-i18n="events_title">EVENTS</h2>
+      <p class="section-subtitle" data-i18n="events_subtitle">Nächte, die in Erinnerung bleiben</p>
+    </div>
+    <div class="drinks-grid">
+      <article class="drink reveal drink-half"><div class="drink-header"><h3 class="drink-title" data-i18n="event1_title">NOX Nights</h3><span class="drink-number" data-i18n="event1_time">Fr / Sa · ab 21:00</span></div><p class="drink-text" data-i18n="event1_text">Die Wochenenden gehören der Nacht. Resident DJs legen auf, die Drinks fließen, und die Energie steigt bis zum Morgengrauen.</p></article>
+      <article class="drink reveal drink-half"><div class="drink-header"><h3 class="drink-title" data-i18n="event2_title">Dark Hours</h3><span class="drink-number" data-i18n="event2_time">Täglich · 17:00 – 19:00</span></div><p class="drink-text" data-i18n="event2_text">Happy Hour für Nachtschwärmer. 2-für-1 auf ausgewählte Cocktails. Der perfekte Start in deine Nacht.</p></article>
+      <article class="drink reveal drink-half"><div class="drink-header"><h3 class="drink-title" data-i18n="event3_title">Guest DJ</h3><span class="drink-number" data-i18n="event3_time">Monatlich · International</span></div><p class="drink-text" data-i18n="event3_text">Wir holen die besten DJs aus Europa und darüber hinaus nach Kyrenia. Elektronische Musik auf Weltklasse-Niveau.</p></article>
+      <article class="drink reveal drink-half"><div class="drink-header"><h3 class="drink-title" data-i18n="event4_title">The Last Round</h3><span class="drink-number" data-i18n="event4_time">Quartalsweise · bis 05:00</span></div><p class="drink-text" data-i18n="event4_text">Eine Nacht ohne Ende. Keine Sperrstunde vor 05:00 Uhr. Nur Musik, Drinks und Menschen, die die Nacht lieben.</p></article>
+    </div>
+  </section>
+
+  <section class="promo-section">
+    <a href="#reservation" class="promo-banner reveal">
+      <div class="promo-text">
+        <span class="promo-kicker" data-i18n="promo_kicker">Nur in der NOX Bar</span>
+        <h2 class="promo-title" data-i18n="promo_title">Dein Tisch wartet schon.</h2>
+        <p data-i18n="promo_text">Täglich 17:00 – 05:00 Uhr · Jetzt reservieren und die Nacht genießen.</p>
+      </div>
+      <span class="promo-cta"><span data-i18n="promo_cta">Tisch reservieren</span> <span aria-hidden="true">→</span></span>
+    </a>
+  </section>
+
+  <section class="reservation" id="reservation">
+    <div class="section-header reveal">
+      <p class="section-eyebrow" data-i18n="reservation_eyebrow">Buchen</p>
+      <h2 class="section-title" data-i18n="reservation_title">RESERVIERUNG</h2>
+      <p class="section-subtitle" data-i18n="reservation_subtitle">Sichere dir deinen Platz im Dunkeln – täglich 17:00 bis 05:00 Uhr.</p>
+    </div>
+    <div class="form-wrapper reveal">
+      <form id="reservationForm">
+        <div class="form-grid">
+          <div class="form-group"><label for="name" data-i18n="form_name">Vollständiger Name</label><input type="text" id="name" name="name" required></div>
+          <div class="form-group"><label for="email" data-i18n="form_email">E-Mail-Adresse</label><input type="email" id="email" name="email" required></div>
+          <div class="form-group"><label for="phone" data-i18n="form_phone">Telefonnummer</label><input type="tel" id="phone" name="phone" required></div>
+          <div class="form-group"><label for="date" data-i18n="form_date">Datum</label><input type="date" id="date" name="date" required></div>
+          <div class="form-group"><label for="time" data-i18n="form_time">Uhrzeit</label>
+            <select id="time" name="time" required>
+              <option value="" data-i18n="form_select">Bitte auswählen</option>
+              <option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option><option>22:00</option><option>23:00</option><option>00:00</option><option>01:00</option><option>02:00</option><option>03:00</option><option>04:00</option>
+            </select>
+          </div>
+          <div class="form-group"><label for="guests" data-i18n="form_guests">Anzahl der Gäste</label>
+            <select id="guests" name="guests" required>
+              <option value="" data-i18n="form_select">Bitte auswählen</option>
+              <option value="1" data-i18n="form_guests_1">1 Person</option><option value="2" data-i18n="form_guests_2">2 Personen</option><option value="3" data-i18n="form_guests_3">3 Personen</option><option value="4" data-i18n="form_guests_4">4 Personen</option><option value="5" data-i18n="form_guests_5">5 Personen</option><option value="6" data-i18n="form_guests_6">6 Personen</option><option value="7+" data-i18n="form_guests_7">7+ Personen</option>
+            </select>
+          </div>
+          <div class="form-group full"><label for="message" data-i18n="form_message">Besondere Wünsche</label><textarea id="message" name="message" data-i18n-placeholder="form_message_placeholder" placeholder="Allergien, besondere Anlässe, etc."></textarea></div>
+        </div>
+        <button type="submit" class="btn btn-primary submit"><span data-i18n="form_submit">Reservierungsanfrage senden</span></button>
+        <p class="form-note" id="formNote" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">NOX BAR</div>
+      <p class="footer-text" data-i18n="footer_brand1">Premium Dark Nightlife · Cocktailbar &amp; Lounge</p>
+      <p class="footer-text" data-i18n="footer_brand2">Kyrenia, Nordzypern · Inhaber: Imran Malik</p>
+    </div>
+    <div class="footer-column">
+      <h4 class="footer-title" data-i18n="footer_hours_title">ÖFFNUNGSZEITEN</h4>
+      <ul class="footer-list">
+        <li><a href="#" data-i18n="footer_hours1">Täglich geöffnet</a></li>
+        <li><a href="#">17:00 – 05:00</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4 class="footer-title" data-i18n="footer_contact_title">KONTAKT</h4>
+      <ul class="footer-list">
+        <li><a href="#" data-i18n="footer_contact_owner">Inhaber: Imran Malik</a></li>
+        <li><a href="mailto:hello@nox-kyrenia.com">hello@nox-kyrenia.com</a></li>
+        <li><a href="https://nox-kyrenia.com" target="_blank" rel="noopener">nox-kyrenia.com</a></li>
+        <li><a href="https://instagram.com/NOXKyrenia" target="_blank" rel="noopener">@NOXKyrenia</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4 class="footer-title" data-i18n="footer_nav_title">NAVIGATION</h4>
+      <ul class="footer-list">
+        <li><a href="#home" data-i18n="nav_home">STARTSEITE</a></li>
+        <li><a href="#about" data-i18n="nav_about">DIE NACHT</a></li>
+        <li><a href="#drinks" data-i18n="nav_drinks">DRINKS</a></li>
+        <li><a href="#events" data-i18n="nav_events">EVENTS</a></li>
+        <li><a href="#reservation" data-i18n="nav_reservation">RESERVIERUNG</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-slogan" data-i18n="footer_slogan">Die Nacht gehört dir.</p>
+    <p class="footer-slogan-en" data-i18n="footer_slogan_en">Own the night.</p>
+  </div>
+</footer>
+
+<!-- CHATBOT Noxi der Stern -->
+<div class="chat-widget" id="chatWidget">
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat mit Noxi" aria-hidden="true">
+    <div class="chat-header">
+      <div class="chat-avatar">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <defs>
+            <linearGradient id="starGradA" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F2E9FF"/><stop offset="60%" stop-color="#D1B8FF"/><stop offset="100%" stop-color="#B98BEE"/></linearGradient>
+            <filter id="softA" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.5"/></filter>
+          </defs>
+          <path d="M50 9 L61 36 L90 38 L68 57 L75 86 L50 70 L25 86 L32 57 L10 38 L39 36 Z" fill="#9D71E8" opacity=".4" filter="url(#softA)"/>
+          <g fill="#F2E9FF" opacity=".85">
+            <circle cx="50" cy="10" r="4"/><circle cx="89" cy="38" r="4"/><circle cx="75" cy="85" r="4"/>
+            <circle cx="25" cy="85" r="4"/><circle cx="11" cy="38" r="4"/>
+          </g>
+          <path d="M16 13 L18 19 L24 21 L18 23 L16 29 L14 23 L8 21 L14 19 Z" fill="#9D71E8" opacity=".85"/>
+            <path d="M50 9 L61 36 L90 38 L68 57 L75 86 L50 70 L25 86 L32 57 L10 38 L39 36 Z" fill="url(#starGradA)" stroke="#9D71E8" stroke-width="9" stroke-linejoin="round"/>
+          <ellipse cx="39" cy="33" rx="9" ry="4.5" transform="rotate(-25 39 33)" fill="#fff" opacity=".35"/>
+          <g class="eyes">
+            <ellipse cx="41" cy="50" rx="4.8" ry="6.2" fill="#25134D"/><ellipse cx="59" cy="50" rx="4.8" ry="6.2" fill="#25134D"/>
+            <circle cx="42.4" cy="47.4" r="1.9" fill="#fff"/><circle cx="60.4" cy="47.4" r="1.9" fill="#fff"/>
+          </g>
+          <ellipse cx="30" cy="60" rx="6" ry="3.4" fill="#E39AD9" opacity=".65"/><ellipse cx="70" cy="60" rx="6" ry="3.4" fill="#E39AD9" opacity=".65"/>
+          <path class="mouth" d="M45 60 Q50 66 55 60" fill="none" stroke="#25134D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="chat-header-text"><strong>Noxi</strong><span><i class="online-dot"></i><span id="chatStatus">Dein flauschiger Stern</span></span></div>
+      <button class="chat-close" id="chatClose" aria-label="Chat schließen">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages" role="log" aria-live="polite"></div>
+    <div class="chat-quick" id="chatQuick"></div>
+    <form class="chat-input" id="chatForm">
+      <input type="text" id="chatInput" aria-label="Nachricht eingeben" autocomplete="off">
+      <button type="submit" class="chat-send" aria-label="Nachricht senden">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </button>
+    </form>
+  </div>
+  <button class="chat-launcher" id="chatLauncher" aria-label="Chat mit Noxi öffnen" aria-expanded="false">
+    <span class="chat-badge">⭐</span>
+    <span class="chat-mascot">
+      <svg viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <linearGradient id="starGradL" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#F2E9FF"/><stop offset="60%" stop-color="#D1B8FF"/><stop offset="100%" stop-color="#B98BEE"/></linearGradient>
+          <filter id="softL" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="2.5"/></filter>
+        </defs>
+        <path d="M50 9 L61 36 L90 38 L68 57 L75 86 L50 70 L25 86 L32 57 L10 38 L39 36 Z" fill="#9D71E8" opacity=".4" filter="url(#softL)"/>
+        <g fill="#F2E9FF" opacity=".85">
+          <circle cx="50" cy="10" r="4"/><circle cx="89" cy="38" r="4"/><circle cx="75" cy="85" r="4"/>
+          <circle cx="25" cy="85" r="4"/><circle cx="11" cy="38" r="4"/>
+        </g>
+        <path d="M16 13 L18 19 L24 21 L18 23 L16 29 L14 23 L8 21 L14 19 Z" fill="#9D71E8" opacity=".85"/>
+        <path d="M50 9 L61 36 L90 38 L68 57 L75 86 L50 70 L25 86 L32 57 L10 38 L39 36 Z" fill="url(#starGradL)" stroke="#9D71E8" stroke-width="9" stroke-linejoin="round"/>
+        <ellipse cx="39" cy="33" rx="9" ry="4.5" transform="rotate(-25 39 33)" fill="#fff" opacity=".35"/>
+        <g class="eyes">
+          <ellipse cx="41" cy="50" rx="4.8" ry="6.2" fill="#25134D"/><ellipse cx="59" cy="50" rx="4.8" ry="6.2" fill="#25134D"/>
+          <circle cx="42.4" cy="47.4" r="1.9" fill="#fff"/><circle cx="60.4" cy="47.4" r="1.9" fill="#fff"/>
+        </g>
+        <ellipse cx="30" cy="60" rx="6" ry="3.4" fill="#E39AD9" opacity=".65"/><ellipse cx="70" cy="60" rx="6" ry="3.4" fill="#E39AD9" opacity=".65"/>
+        <path class="mouth" d="M45 60 Q50 66 55 60" fill="none" stroke="#25134D" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </span>
+  </button>
+</div>
+
+<!-- Getränke- und Speisedaten – gemeinsam mit den Menüseiten -->
+<script src="assets/nox-menu.js"></script>
+<script src="assets/nox-food.js"></script>
+<script>
+/* ============================================================
+   ÜBERSETZUNGEN (DE / EN / TR / RU)
+   ============================================================ */
+const translations={
+ de:{
+  nav_home:"STARTSEITE",nav_about:"DIE NACHT",nav_drinks:"DRINKS",nav_menu:"GETRÄNKEKARTE",nav_food:"SPEISEKARTE",nav_events:"EVENTS",nav_reservation:"RESERVIERUNG",nav_contact:"KONTAKT",
+  hero_eyebrow:"Premium Dark Nightlife · Kyrenia, Nordzypern",hero_subtitle:"Die Nacht gehört dir.",hero_subtitle_en:"Own the night.",
+  hero_btn_reserve:"Tisch reservieren",hero_btn_drinks:"Signature Drinks",
+  about_eyebrow:"Erlebnis",about_title:"DIE NACHT",about_subtitle:"NOX ist kein Ort. NOX ist ein Gefühl. Tauche ein in eine Welt, wo Licht nur existiert, um Schatten zu erschaffen.",
+  about_card1_eyebrow:"Atmosphäre",about_card1_title:"Die Dunkelheit",about_card1_text:"Hier verschmilzt die Nacht mit deiner Seele. Ein Raum, der nur zum Vergessen der Zeit existiert.",
+  about_card2_eyebrow:"Sound",about_card2_title:"Der Beat",about_card2_text:"Beats, die durch deine Adern pulsieren. Von Deep House bis Techno – jede Nacht eine neue Reise durch den Sound der Dunkelheit.",
+  about_card3_eyebrow:"Handwerk",about_card3_title:"Der Geschmack",about_card3_text:"Cocktails, die Geschichten erzählen. Jeder Drink ist eine Komposition aus Kunst, Wissenschaft und purer Leidenschaft.",
+  drinks_eyebrow:"Menü",drinks_title:"SIGNATURE DRINKS",drinks_subtitle:"Flüssige Kunst für die Nacht",drinks_full_menu:"Zur kompletten Getränkekarte →",
+  drink1_text:"Schwarze Johannisbeere · Premium Vodka · Aktivkohle · Zitrus. Tiefschwarz wie die Nacht selbst. Unser Signature Drink – dunkel, mysteriös, unvergesslich.",
+  drink2_text:"Bourbon · Hausgemachter Karamellsirup · Cold Brew Espresso · Vanille. Der Widerspruch in einem Glas – warm und dunkel, süß und bitter.",
+  drink3_text:"Premium Gin · Butterfly Pea Flower Tea · Zitrone · Tonic. Farbwechselnd von Violett zu Pink – Magie in flüssiger Form.",
+  drink4_text:"Mezcal · Schwarzes Sesam-Orgeat · Chili · Limette · Agave. Rauchig, würzig, gefährlich. Für die, die es intensiv mögen.",
+  drink5_text:"Single Malt Whisky. Auf Eis. Keine Erklärung nötig. Für Kenner, die wissen, was sie wollen.",
+  events_eyebrow:"Programm",events_title:"EVENTS",events_subtitle:"Nächte, die in Erinnerung bleiben",
+  event1_title:"NOX Nights",event1_time:"Fr / Sa · ab 21:00",event1_text:"Die Wochenenden gehören der Nacht. Resident DJs legen auf, die Drinks fließen, und die Energie steigt bis zum Morgengrauen.",
+  event2_title:"Dark Hours",event2_time:"Täglich · 17:00 – 19:00",event2_text:"Happy Hour für Nachtschwärmer. 2-für-1 auf ausgewählte Cocktails. Der perfekte Start in deine Nacht.",
+  event3_title:"Guest DJ",event3_time:"Monatlich · International",event3_text:"Wir holen die besten DJs aus Europa und darüber hinaus nach Kyrenia. Elektronische Musik auf Weltklasse-Niveau.",
+  event4_title:"The Last Round",event4_time:"Quartalsweise · bis 05:00",event4_text:"Eine Nacht ohne Ende. Keine Sperrstunde vor 05:00 Uhr. Nur Musik, Drinks und Menschen, die die Nacht lieben.",
+  promo_kicker:"Nur in der NOX Bar",promo_title:"Dein Tisch wartet schon.",promo_text:"Täglich 17:00 – 05:00 Uhr · Jetzt reservieren und die Nacht genießen.",promo_cta:"Tisch reservieren",
+  reservation_eyebrow:"Buchen",reservation_title:"RESERVIERUNG",reservation_subtitle:"Sichere dir deinen Platz im Dunkeln – täglich 17:00 bis 05:00 Uhr.",
+  form_name:"Vollständiger Name",form_email:"E-Mail-Adresse",form_phone:"Telefonnummer",form_date:"Datum",form_time:"Uhrzeit",form_select:"Bitte auswählen",
+  form_guests:"Anzahl der Gäste",form_guests_1:"1 Person",form_guests_2:"2 Personen",form_guests_3:"3 Personen",form_guests_4:"4 Personen",form_guests_5:"5 Personen",form_guests_6:"6 Personen",form_guests_7:"7+ Personen",
+  form_message:"Besondere Wünsche",form_message_placeholder:"Allergien, besondere Anlässe, etc.",form_submit:"Reservierungsanfrage senden",
+  footer_brand1:"Premium Dark Nightlife · Cocktailbar & Lounge",footer_brand2:"Kyrenia, Nordzypern · Inhaber: Imran Malik",
+  footer_hours_title:"ÖFFNUNGSZEITEN",footer_hours1:"Täglich geöffnet",footer_contact_title:"KONTAKT",footer_contact_owner:"Inhaber: Imran Malik",footer_nav_title:"NAVIGATION",
+  footer_slogan:"Die Nacht gehört dir.",footer_slogan_en:"Own the night.",
+  reservation_ok:"Reservierung bestätigt! Dein Code:",reservation_hint:"Wir senden dir die Bestätigung per E-Mail.",reservation_error:"Fehler:",reservation_offline:"Backend nicht erreichbar – Reservierung per E-Mail.",
+  alert_message:"Danke für deine Reservierungsanfrage! Dein E-Mail-Programm öffnet sich – bitte sende die Nachricht noch ab.",
+  mail_subject:"Tischreservierung NOX Bar",mail_hello:"Hallo NOX Bar,",mail_body:"ich möchte gerne einen Tisch reservieren:",mail_name:"Name",mail_phone:"Telefon",mail_email:"E-Mail",mail_people:"Personen",mail_date:"Datum",mail_time:"Uhrzeit",mail_note:"Nachricht",mail_regards:"Viele Grüße"
+ },
+ en:{
+  nav_home:"HOME",nav_about:"THE NIGHT",nav_drinks:"DRINKS",nav_menu:"DRINKS MENU",nav_food:"FOOD MENU",nav_events:"EVENTS",nav_reservation:"RESERVATION",nav_contact:"CONTACT",
+  hero_eyebrow:"Premium Dark Nightlife · Kyrenia, North Cyprus",hero_subtitle:"The night belongs to you.",hero_subtitle_en:"Own the night.",
+  hero_btn_reserve:"Reserve a Table",hero_btn_drinks:"Signature Drinks",
+  about_eyebrow:"Experience",about_title:"THE NIGHT",about_subtitle:"NOX is not a place. NOX is a feeling. Step into a world where light only exists to cast shadows.",
+  about_card1_eyebrow:"Atmosphere",about_card1_title:"The Darkness",about_card1_text:"Here, the night merges with your soul. A space designed purely to make time stand still.",
+  about_card2_eyebrow:"Sound",about_card2_title:"The Beat",about_card2_text:"Beats pulsing through your veins. From Deep House to Techno, every night takes you on a journey through the darkness.",
+  about_card3_eyebrow:"Craft",about_card3_title:"The Taste",about_card3_text:"Cocktails that tell stories. Each drink is a composition of art, science and pure passion.",
+  drinks_eyebrow:"Menu",drinks_title:"SIGNATURE DRINKS",drinks_subtitle:"Liquid artistry for the nocturnal soul",drinks_full_menu:"See the full drinks menu →",
+  drink1_text:"Blackcurrant · Premium Vodka · Activated Charcoal · Citrus. As dark as the night itself. Our signature drink – mysterious, bold, unforgettable.",
+  drink2_text:"Bourbon · Homemade Caramel Syrup · Cold Brew Espresso · Vanilla. A contradiction in a glass – warm and dark, sweet and bitter.",
+  drink3_text:"Premium Gin · Butterfly Pea Flower Tea · Lemon · Tonic. Shifting from violet to pink – magic in liquid form.",
+  drink4_text:"Mezcal · Black Sesame Orgeat · Chili · Lime · Agave. Smoky, spicy, dangerous. For those who like it intense.",
+  drink5_text:"Single Malt Whisky. On the rocks. No explanation needed. For connoisseurs who know exactly what they want.",
+  events_eyebrow:"Program",events_title:"EVENTS",events_subtitle:"Nights worth remembering",
+  event1_title:"NOX Nights",event1_time:"Fri / Sat · from 21:00",event1_text:"The weekends belong to the night. Resident DJs take over, drinks flow, and the energy rises until dawn.",
+  event2_title:"Dark Hours",event2_time:"Daily · 17:00 – 19:00",event2_text:"Happy hour for night owls. 2-for-1 on selected cocktails. The perfect start to your night.",
+  event3_title:"Guest DJ",event3_time:"Monthly · International",event3_text:"We bring the finest DJs from across Europe and beyond to Kyrenia. World-class electronic music in the heart of North Cyprus.",
+  event4_title:"The Last Round",event4_time:"Quarterly · Till 05:00",event4_text:"A night with no end. No closing time before 05:00. Just music, drinks and people who truly love the night.",
+  promo_kicker:"Only at NOX Bar",promo_title:"Your table is waiting.",promo_text:"Daily 17:00 – 05:00 · Reserve now and enjoy the night.",promo_cta:"Reserve a table",
+  reservation_eyebrow:"Book",reservation_title:"RESERVATION",reservation_subtitle:"Secure your place in the dark – open daily 17:00 to 05:00.",
+  form_name:"Full Name",form_email:"Email Address",form_phone:"Phone Number",form_date:"Date",form_time:"Time",form_select:"Please select",
+  form_guests:"Number of Guests",form_guests_1:"1 Person",form_guests_2:"2 People",form_guests_3:"3 People",form_guests_4:"4 People",form_guests_5:"5 People",form_guests_6:"6 People",form_guests_7:"7+ People",
+  form_message:"Special Requests",form_message_placeholder:"Allergies, special occasions, etc.",form_submit:"Send Reservation Request",
+  footer_brand1:"Premium Dark Nightlife · Cocktail Bar & Lounge",footer_brand2:"Kyrenia, North Cyprus · Owner: Imran Malik",
+  footer_hours_title:"OPENING HOURS",footer_hours1:"Open Daily",footer_contact_title:"CONTACT",footer_contact_owner:"Owner: Imran Malik",footer_nav_title:"NAVIGATION",
+  footer_slogan:"The night belongs to you.",footer_slogan_en:"Own the night.",
+  reservation_ok:"Reservation confirmed! Your code:",reservation_hint:"We'll email you the confirmation.",reservation_error:"Error:",reservation_offline:"Backend unavailable – reserving by email.",
+  alert_message:"Thanks for your reservation request! Your email app will open – please send the message.",
+  mail_subject:"Table reservation NOX Bar",mail_hello:"Hello NOX Bar,",mail_body:"I would like to reserve a table:",mail_name:"Name",mail_phone:"Phone",mail_email:"Email",mail_people:"Guests",mail_date:"Date",mail_time:"Time",mail_note:"Message",mail_regards:"Best regards"
+ },
+ tr:{
+  nav_home:"ANA SAYFA",nav_about:"GECE",nav_drinks:"İÇKİLER",nav_menu:"İÇECEK MENÜSÜ",nav_food:"YEMEK MENÜSÜ",nav_events:"ETKİNLİKLER",nav_reservation:"REZERVASYON",nav_contact:"İLETİŞİM",
+  hero_eyebrow:"Premium Karanlık Gece Hayatı · Girne, KKTC",hero_subtitle:"Gece sana ait.",hero_subtitle_en:"Own the night.",
+  hero_btn_reserve:"Masa Rezerve Et",hero_btn_drinks:"İmza Kokteyller",
+  about_eyebrow:"Deneyim",about_title:"GECE",about_subtitle:"NOX bir mekan değil. NOX bir histir. Işığın sadece gölgeleri yaratmak için var olduğu bir dünyaya adım at.",
+  about_card1_eyebrow:"Atmosfer",about_card1_title:"Karanlık",about_card1_text:"Burada gece ruhunla birleşir. Sadece zamanın durması için tasarlanmış bir mekan.",
+  about_card2_eyebrow:"Ses",about_card2_title:"Ritim",about_card2_text:"Damarlarında dolaşan ritimler. Deep House'dan Techno'ya, her gece karanlıkta yeni bir yolculuk.",
+  about_card3_eyebrow:"Sanat",about_card3_title:"Lezzet",about_card3_text:"Hikayeler anlatan kokteyller. Her içki sanat, bilim ve saf tutkunun bir birleşimidir.",
+  drinks_eyebrow:"Menü",drinks_title:"İMZA KOKTEYLLER",drinks_subtitle:"Gece ruhu için sıvı sanat",drinks_full_menu:"Tüm içecek menüsünü gör →",
+  drink1_text:"Kara Frenk Üzümü · Premium Votka · Aktif Kömür · Narenciye. Gecenin kendisi kadar karanlık. İmza kokteylimiz – gizemli, cesur, unutulmaz.",
+  drink2_text:"Bourbon · Ev Yapımı Karamel Şurubu · Soğuk Demleme Espresso · Vanilya. Bir bardaktaki çelişki – sıcak ve karanlık, tatlı ve acı.",
+  drink3_text:"Premium Cin · Kelebek Bezelyesi Çayı · Limon · Tonik. Mor'dan pembeye dönüşen sihir.",
+  drink4_text:"Mezcal · Siyah Susam Orgeatı · Acı Biber · Misket Limonu · Agave. Dumanlı, baharatlı, tehlikeli.",
+  drink5_text:"Tek Malt Viski. Buzlu. Açıklamaya gerek yok. Ne istediğini bilenler için.",
+  events_eyebrow:"Program",events_title:"ETKİNLİKLER",events_subtitle:"Hatırlanmaya değer geceler",
+  event1_title:"NOX Geceleri",event1_time:"Cum / Cmt · 21:00'den itibaren",event1_text:"Hafta sonları geceye aittir. Resident DJ'ler sahneyi alır, içkiler akışa geçer, enerji şafağa kadar artar.",
+  event2_title:"Karanlık Saatler",event2_time:"Her gün · 17:00 – 19:00",event2_text:"Gece kuşları için happy hour. Seçili kokteyllerde 2'ye 1.",
+  event3_title:"Misafir DJ",event3_time:"Aylık · Uluslararası",event3_text:"Avrupa ve ötesinden en iyi DJ'leri Girne'ye getiriyoruz. Dünyaca ünlü elektronik müzik.",
+  event4_title:"Son Tur",event4_time:"Üç Aylık · 05:00'ye kadar",event4_text:"Sonu olmayan bir gece. 05:00'den önce kapanış yok. Sadece müzik, içki ve geceyi seven insanlar.",
+  promo_kicker:"Sadece NOX Bar'da",promo_title:"Masan seni bekliyor.",promo_text:"Her gün 17:00 – 05:00 · Hemen rezerve et, gecenin tadını çıkar.",promo_cta:"Masa rezerve et",
+  reservation_eyebrow:"Rezervasyon",reservation_title:"REZERVASYON",reservation_subtitle:"Karanlıktaki yerini ayırt – her gün 17:00 – 05:00.",
+  form_name:"Ad Soyad",form_email:"E-Posta Adresi",form_phone:"Telefon Numarası",form_date:"Tarih",form_time:"Saat",form_select:"Lütfen seçiniz",
+  form_guests:"Misafir Sayısı",form_guests_1:"1 Kişi",form_guests_2:"2 Kişi",form_guests_3:"3 Kişi",form_guests_4:"4 Kişi",form_guests_5:"5 Kişi",form_guests_6:"6 Kişi",form_guests_7:"7+ Kişi",
+  form_message:"Özel İstekler",form_message_placeholder:"Alerjiler, özel günler, vb.",form_submit:"Rezervasyon Talebi Gönder",
+  footer_brand1:"Premium Karanlık Gece Hayatı · Kokteyl Bar & Lounge",footer_brand2:"Girne, KKTC · İşletmeci: Imran Malik",
+  footer_hours_title:"ÇALIŞMA SAATLERİ",footer_hours1:"Her Gün Açık",footer_contact_title:"İLETİŞİM",footer_contact_owner:"İşletmeci: Imran Malik",footer_nav_title:"MENÜ",
+  footer_slogan:"Gece sana ait.",footer_slogan_en:"Own the night.",
+  reservation_ok:"Rezervasyon onaylandı! Kodunuz:",reservation_hint:"Onayı e-posta ile göndereceğiz.",reservation_error:"Hata:",reservation_offline:"Sunucuya ulaşılamıyor – e-posta ile rezerve ediliyor.",
+  alert_message:"Rezervasyon talebin için teşekkürler! E-posta uygulaman açılacak – lütfen mesajı gönder.",
+  mail_subject:"NOX Bar masa rezervasyonu",mail_hello:"Merhaba NOX Bar,",mail_body:"Bir masa rezerve etmek istiyorum:",mail_name:"Ad",mail_phone:"Telefon",mail_email:"E-posta",mail_people:"Kişi",mail_date:"Tarih",mail_time:"Saat",mail_note:"Not",mail_regards:"Saygılar"
+ },
+ ru:{
+  nav_home:"ГЛАВНАЯ",nav_about:"НОЧЬ",nav_drinks:"НАПИТКИ",nav_menu:"МЕНЮ НАПИТКОВ",nav_food:"МЕНЮ БЛЮД",nav_events:"СОБЫТИЯ",nav_reservation:"БРОНИРОВАНИЕ",nav_contact:"КОНТАКТЫ",
+  hero_eyebrow:"Премиальный ночной досуг · Кирения, Северный Кипр",hero_subtitle:"Ночь принадлежит тебе.",hero_subtitle_en:"Own the night.",
+  hero_btn_reserve:"Забронировать столик",hero_btn_drinks:"Фирменные коктейли",
+  about_eyebrow:"Опыт",about_title:"НОЧЬ",about_subtitle:"NOX — это не место. NOX — это чувство. Погрузись в мир, где свет существует лишь для того, чтобы отбрасывать тени.",
+  about_card1_eyebrow:"Атмосфера",about_card1_title:"Тьма",about_card1_text:"Здесь ночь сливается с твоей душой. Пространство, созданное лишь для того, чтобы время остановилось.",
+  about_card2_eyebrow:"Звук",about_card2_title:"Ритм",about_card2_text:"Бит, пульсирующий в венах. От Deep House до Techno — каждая ночь новое путешествие во тьме.",
+  about_card3_eyebrow:"Мастерство",about_card3_title:"Вкус",about_card3_text:"Коктейли, рассказывающие истории. Каждый напиток — это сочетание искусства, науки и чистой страсти.",
+  drinks_eyebrow:"Меню",drinks_title:"ФИРМЕННЫЕ КОКТЕЙЛИ",drinks_subtitle:"Жидкое искусство для ночных душ",drinks_full_menu:"Полное меню напитков →",
+  drink1_text:"Черная смородина · Премиум водка · Активированный уголь · Цитрус. Так же темен, как сама ночь. Наш фирменный коктейль — таинственный, дерзкий, незабываемый.",
+  drink2_text:"Бурбон · Домашний карамельный сироп · Холодный завар кофе · Ваниль. Противоречие в бокале — теплый и темный, сладкий и горький.",
+  drink3_text:"Премиум джин · Чай из цветка клитории · Лимон · Тоник. Волшебное превращение из фиолетового в розовый.",
+  drink4_text:"Мескаль · Оргеат из черного кунжута · Чили · Лайм · Агава. Дымный, пряный, опасный.",
+  drink5_text:"Односолодовый виски. Со льдом. Без объяснений. Для ценителей, которые знают, чего хотят.",
+  events_eyebrow:"Программа",events_title:"СОБЫТИЯ",events_subtitle:"Ночи, которые стоит запомнить",
+  event1_title:"NOX Nights",event1_time:"Пт / Сб · с 21:00",event1_text:"Выходные принадлежат ночи. Резидентные диджеи, льющиеся напитки и энергия до самого рассвета.",
+  event2_title:"Dark Hours",event2_time:"Ежедневно · 17:00 – 19:00",event2_text:"Хэппи-час для полуночников. 2 по цене 1 на избранные коктейли.",
+  event3_title:"Гостевой DJ",event3_time:"Ежемесячно · Международный",event3_text:"Мы приглашаем лучших диджеев из Европы и других стран в Кирению.",
+  event4_title:"The Last Round",event4_time:"Ежеквартально · до 05:00",event4_text:"Ночь без конца. Закрытия до 05:00 нет. Только музыка, напитки и люди, по-настоящему любящие ночь.",
+  promo_kicker:"Только в NOX Bar",promo_title:"Твой столик ждёт.",promo_text:"Ежедневно 17:00 – 05:00 · Забронируй сейчас и наслаждайся ночью.",promo_cta:"Забронировать столик",
+  reservation_eyebrow:"Бронь",reservation_title:"БРОНИРОВАНИЕ",reservation_subtitle:"Забронируй своё место во тьме – ежедневно с 17:00 до 05:00.",
+  form_name:"ФИО",form_email:"Адрес электронной почты",form_phone:"Номер телефона",form_date:"Дата",form_time:"Время",form_select:"Пожалуйста, выберите",
+  form_guests:"Количество гостей",form_guests_1:"1 человек",form_guests_2:"2 человека",form_guests_3:"3 человека",form_guests_4:"4 человека",form_guests_5:"5 человек",form_guests_6:"6 человек",form_guests_7:"7+ человек",
+  form_message:"Особые пожелания",form_message_placeholder:"Аллергии, особые события и др.",form_submit:"Отправить заявку на бронирование",
+  footer_brand1:"Премиальный ночной досуг · Коктейль-бар и лаунж",footer_brand2:"Кирения, Северный Кипр · Владелец: Imran Malik",
+  footer_hours_title:"ЧАСЫ РАБОТЫ",footer_hours1:"Открыты ежедневно",footer_contact_title:"КОНТАКТЫ",footer_contact_owner:"Владелец: Imran Malik",footer_nav_title:"НАВИГАЦИЯ",
+  footer_slogan:"Ночь принадлежит тебе.",footer_slogan_en:"Own the night.",
+  reservation_ok:"Бронирование подтверждено! Ваш код:",reservation_hint:"Мы отправим подтверждение по email.",reservation_error:"Ошибка:",reservation_offline:"Сервер недоступен – бронируем по email.",
+  alert_message:"Спасибо за заявку! Откроется почтовое приложение – пожалуйста, отправь сообщение.",
+  mail_subject:"Бронирование столика NOX Bar",mail_hello:"Здравствуйте, NOX Bar,",mail_body:"Я хотел(а) бы забронировать столик:",mail_name:"Имя",mail_phone:"Телефон",mail_email:"Email",mail_people:"Гости",mail_date:"Дата",mail_time:"Время",mail_note:"Пожелания",mail_regards:"С уважением"
+ }
+};
+
+/* ============================================================
+   CHATBOT TEXTE JE SPRACHE
+   ============================================================ */
+const BOT={
+ de:{status:"Dein flauschiger Stern",placeholder:"Schreib mir was Süßes...",greeting:"Hiiiii! 🌸 Ich bin Noxi, dein flauschiger Stern bei der NOX Bar. Frag mich nach Drinks, Reservierung oder Öffnungszeiten – ich funkle und kuschel gleichzeitig! ⭐💜",
+  chips:[["Getränke","🍹 Was für Getränke bietet ihr an?"],["Reservierung","📅 Wie kann ich einen Tisch reservieren?"],["Zeiten","🕐 Wann habt ihr geöffnet?"],["Freie Zeiten","🪑 Welche Zeiten sind noch frei?"],["Standort","📍 Wo seid ihr?"],["📖 Komplette Karte","getraenkekarte.html"],["🍴 Was gibt's zu essen?","Was gibt es zu essen?"],["🍽 Speisekarte","speisekarte.html"],["📅 Direkt buchen","#reservation"]],
+  drinks:"Unsere Signature Drinks: 🍹\n\n🖤 NOX – Schwarze Johannisbeere, Premium Vodka, Aktivkohle, Zitrus\n🥃 Midnight Sun – Bourbon, Karamell, Cold Brew Espresso, Vanille\n💜 Electric Violet – Gin, Butterfly Pea Tea, Zitrone, Tonic\n🔥 Dark Matter – Mezcal, Sesam-Orgeat, Chili, Limette\n🥃 The Last Round – Single Malt Whisky auf Eis\n\nDazu Biere, Weine, Longdrinks und alkoholfreie Mocktails. Welcher klingt gut? 💜",
+  reserve:"Klar reservieren wir dir einen Tisch! 📅 Wir sind täglich 17:00 – 05:00 Uhr da.\n\nMöchtest du das direkt hier mit mir machen? Schreib einfach JA – dann frage ich dich kurz nach den Details. 💜",
+  flow:{offer:"Schreib JA, dann reserviere ich direkt für dich. ⭐",name:"Wie darf ich dich nennen? 😊",phone:"Danke! Wie ist deine Telefonnummer?",email:"Und deine E-Mail-Adresse für die Bestätigung?",date:"An welchem Datum? (z. B. 2026-11-20, 'heute' oder 'morgen')",time:"Welche Uhrzeit passt dir?",guests:"Wie viele Personen kommen?",done:"✅ Erledigt! Deine Reservierung ist im Kalender und die NOX Bar wurde benachrichtigt. Code: {code} ⭐",cancel:"Okay, ich hab's verworfen. 💜",badDate:"Datum nicht erkannt – bitte 2026-11-20 oder 'heute'/'morgen'.",badTime:"Diese Uhrzeit ist leider ausgebucht. Frei: {slots}"},
+  hours:"Wir haben täglich von 17:00 Uhr bis 05:00 Uhr geöffnet! 🕐 Die Nacht gehört dir – komm gern vorbei. 🌙",
+  location:"Wir sind mitten in Kyrenia auf Nordzypern zu finden! 📍 hello@nox-kyrenia.com · @NOXKyrenia",
+  availability:"Freie Zeiten am",noSlots:"Leider alles ausgebucht – frag für ein anderes Datum! 🌙",learned:"📝 Ich habe mir deine Frage gemerkt und lerne dazu!",followUp:"Möchtest du einen Blick in unsere komplette Getränkekarte werfen oder direkt einen Tisch reservieren?",
+  fallback:"Hihi, darauf weiß ich grad keine Antwort – aber ich finde dich trotzdem total süß! 🐾 Frag mich nach unseren Drinks, der Reservierung oder den Öffnungszeiten. 💜"},
+ en:{status:"Your fluffy star",placeholder:"Say something sweet...",greeting:"Hiiiii! 🌸 I'm Noxi, the fluffy star of NOX Bar. Ask me about drinks, reservations or opening hours – I sparkle and cuddle at the same time! ⭐💜",
+  chips:[["Drinks","🍹 What drinks do you offer?"],["Reservation","📅 How can I reserve a table?"],["Hours","🕐 When are you open?"],["Availability","🪑 Which times are still free?"],["Location","📍 Where are you?"],["📖 Full menu","getraenkekarte.html"],["🍴 Food?","What's there to eat?"],["🍽 Food menu","speisekarte.html"],["📅 Book now","#reservation"]],
+  drinks:"Our signature drinks: 🍹\n\n🖤 NOX – Blackcurrant, premium vodka, activated charcoal, citrus\n🥃 Midnight Sun – Bourbon, caramel, cold brew espresso, vanilla\n💜 Electric Violet – Gin, butterfly pea tea, lemon, tonic\n🔥 Dark Matter – Mezcal, sesame orgeat, chili, lime\n🥃 The Last Round – Single malt whisky on the rocks\n\nPlus beers, wines, long drinks and alcohol-free mocktails. Which one sounds good? 💜",
+  reserve:"Of course we'll reserve a table for you! 📅 We're here daily 17:00 – 05:00.\n\nWant to do it right here with me? Just say YES and I'll ask you for the details. 💜",
+  flow:{offer:"Say YES and I'll reserve it for you. ⭐",name:"What's your name? 😊",phone:"Thanks! What's your phone number?",email:"And your email for the confirmation?",date:"Which date? (e.g. 2026-11-20, 'today' or 'tomorrow')",time:"What time works for you?",guests:"How many people?",done:"✅ Done! Your reservation is in the calendar and NOX Bar has been notified. Code: {code} ⭐",cancel:"Okay, I discarded it. 💜",badDate:"Date not recognized – please use 2026-11-20 or 'today'/'tomorrow'.",badTime:"That time is fully booked. Free: {slots}"},
+  hours:"We're open daily from 17:00 to 05:00! 🕐 The night belongs to you – come by. 🌙",
+  location:"You'll find us right in the heart of Kyrenia, North Cyprus! 📍 hello@nox-kyrenia.com · @NOXKyrenia",
+  availability:"Available times on",noSlots:"Fully booked that day – try another date! 🌙",learned:"📝 I've noted your question and I'm learning!",followUp:"Would you like to see our full drinks menu or reserve a table right away?",
+  fallback:"Hehe, I don't know that one yet – but I still think you're super sweet! 🐾 Ask me about our drinks, reservations or opening hours. 💜"},
+ tr:{status:"Sevimli yıldızın",placeholder:"Tatlı bir şey yaz...",greeting:"Hiiiii! 🌸 Ben Noxi, NOX Bar'ın sevimli yıldızıyım. İçkiler, rezervasyon veya çalışma saatleri hakkında sor – hem parlar hem sarılırım! ⭐💜",
+  chips:[["İçkiler","🍹 Hangi içkileriniz var?"],["Rezervasyon","📅 Masa nasıl rezerve ederim?"],["Saatler","🕐 Ne zaman açıksınız?"],["Uygun saatler","🪑 Hangi saatler boş?"],["Konum","📍 Neredesiniz?"],["📖 Menü","getraenkekarte.html"],["🍴 Yemek var mı?","Ne yiyebiliriz?"],["🍽 Yemek menüsü","speisekarte.html"],["📅 Rezerve et","#reservation"]],
+  drinks:"İmza kokteyllerimiz: 🍹\n\n🖤 NOX – Kara frenk üzümü, premium votka, aktif kömür, narenciye\n🥃 Midnight Sun – Bourbon, karamel, soğuk espresso, vanilya\n💜 Electric Violet – Cin, kelebek bezelyesi çayı, limon, tonik\n🔥 Dark Matter – Mezcal, susam orgeatı, acı biber, misket limonu\n🥃 The Last Round – Tek malt viski, buzlu\n\nAyrıca bira, şarap, long drink ve alkolsüz kokteyller. Hangisi güzel geldi? 💜",
+  reserve:"Tabii ki masa ayırtabiliriz! 📅 Her gün 17:00 – 05:00 arasındayız.\n\nBunu burada benimle yapmak ister misin? EVET yaz, kısaca bilgilerini sorayım. 💜",
+  flow:{offer:"Rezerve etmem için EVET yaz. ⭐",name:"Adın ne? 😊",phone:"Teşekkürler! Telefon numaran?",email:"Onay için e-posta adresin?",date:"Hangi tarihte? (örn. 2026-11-20, 'bugün' veya 'yarın')",time:"Saat kaç uygun?",guests:"Kaç kişi geleceksiniz?",done:"✅ Tamam! Rezervasyon takvime eklendi ve NOX Bar bilgilendirildi. Kod: {code} ⭐",cancel:"Tamam, iptal ettim. 💜",badDate:"Tarih anlaşılmadı – 2026-11-20 veya 'bugün'/'yarın' yaz.",badTime:"O saat dolu. Boş olanlar: {slots}"},
+  hours:"Her gün 17:00 – 05:00 arası açığız! 🕐 Gece sana ait – bekleriz. 🌙",
+  location:"Girne'nin tam merkezindeyiz, KKTC! 📍 hello@nox-kyrenia.com · @NOXKyrenia",
+  availability:"Uygun saatlar",noSlots:"O gün tamamen dolu – başka bir tarih sor! 🌙",learned:"📝 Sorunu not ettim, öğreniyorum!",followUp:"İçecek menümüze göz atmak ister misin yoksa hemen masa rezerve etmek mi?",
+  fallback:"Hihi, bunu bilmiyorum ama sen yine de çok tatlısın! 🐾 İçkileri, rezervasyonu veya saatleri sor bana. 💜"},
+ ru:{status:"Твоя пушистая звезда",placeholder:"Напиши что-нибудь милое...",greeting:"Хииии! 🌸 Я Нокси, пушистая звезда NOX Bar. Спроси меня про напитки, бронирование или часы работы – я и сияю, и обнимаюсь одновременно! ⭐💜",
+  chips:[["Напитки","🍹 Какие напитки у вас есть?"],["Бронь","📅 Как забронировать столик?"],["Часы","🕐 Когда вы открыты?"],["Свободно","🪑 Какие времена свободны?"],["Адрес","📍 Где вы находитесь?"],["📖 Меню","getraenkekarte.html"],["🍴 Еда?","Что есть поесть?"],["🍽 Меню блюд","speisekarte.html"],["📅 Забронировать","#reservation"]],
+  drinks:"Наши фирменные коктейли: 🍹\n\n🖤 NOX – черная смородина, премиум водка, активированный уголь, цитрус\n🥃 Midnight Sun – бурбон, карамель, холодный эспрессо, ваниль\n💜 Electric Violet – джин, чай клитории, лимон, тоник\n🔥 Dark Matter – мескаль, кунжутный оргеат, чили, лайм\n🥃 The Last Round – односолодовый виски со льдом\n\nПлюс пиво, вино, лонгдринки и безалкогольные коктейли. Что понравилось? 💜",
+  reserve:"Конечно забронируем тебе столик! 📅 Мы открыты ежедневно с 17:00 до 05:00.\n\nХочешь сделать это прямо здесь со мной? Напиши ДА – я спрошу нужные данные. 💜",
+  flow:{offer:"Напиши ДА, и я забронирую. ⭐",name:"Как тебя зовут? 😊",phone:"Спасибо! Твой телефон?",email:"И email для подтверждения?",date:"Какая дата? (напр. 2026-11-20, 'сегодня' или 'завтра')",time:"Какое время удобно?",guests:"Сколько человек?",done:"✅ Готово! Бронирование в календаре, NOX Bar уведомлён. Код: {code} ⭐",cancel:"Ок, я отменил. 💜",badDate:"Не понял дату – напиши 2026-11-20 или 'сегодня'/'завтра'.",badTime:"Это время занято. Свободно: {slots}"},
+  hours:"Мы открыты ежедневно с 17:00 до 05:00! 🕐 Ночь принадлежит тебе – заходи. 🌙",
+  location:"Мы в самом центре Кирении, Северный Кипр! 📍 hello@nox-kyrenia.com · @NOXKyrenia",
+  availability:"Свободное время на",noSlots:"В тот день всё занято – спроси про другую дату! 🌙",learned:"📝 Я запомнил твой вопрос и учусь!",followUp:"Хочешь посмотреть полное меню напитков или сразу забронировать столик?",
+  fallback:"Хихи, я пока не знаю ответа – но ты всё равно очень милый! 🐾 Спроси меня про напитки, бронирование или часы работы. 💜"}
+};
+
+/* ============================================================
+   ОБЩАЯ ЛОГИКА
+   ============================================================ */
+const navbar=document.getElementById('navbar');
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+const langBtn=document.getElementById('langBtn');
+const langDropdown=document.getElementById('langDropdown');
+const currentLangEl=document.getElementById('currentLang');
+const langOptions=langDropdown.querySelectorAll('li');
+const themeToggle=document.getElementById('themeToggle');
+const themeIcon=document.getElementById('themeIcon');
+let currentLang='de';
+
+function setLanguage(lang){
+  currentLang=lang;
+  currentLangEl.textContent=lang.toUpperCase();
+  document.documentElement.lang=lang;
+  langOptions.forEach(o=>o.classList.toggle('active',o.dataset.lang===lang));
+  const t=translations[lang]||translations.de;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const v=t[el.dataset.i18n]; if(v) el.textContent=v;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el=>{
+    const v=t[el.dataset.i18nPlaceholder]; if(v) el.placeholder=v;
+  });
+  localStorage.setItem('nox_lang',lang);
+  if(typeof setupChat==='function') setupChat();
+}
+
+const savedTheme=localStorage.getItem('nox_theme')||'dark';
+document.documentElement.setAttribute('data-theme',savedTheme);
+themeIcon.textContent=savedTheme==='dark'?'🌙':'☀️';
+themeToggle.addEventListener('click',()=>{
+  const next=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',next);
+  localStorage.setItem('nox_theme',next);
+  themeIcon.textContent=next==='dark'?'🌙':'☀️';
+});
+
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>40));
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  navLinks.classList.toggle('active');
+  document.body.style.overflow=navLinks.classList.contains('active')?'hidden':'auto';
+});
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{
+  hamburger.classList.remove('active');navLinks.classList.remove('active');document.body.style.overflow='auto';
+}));
+langBtn.addEventListener('click',e=>{e.stopPropagation();langDropdown.classList.toggle('active');});
+document.addEventListener('click',()=>langDropdown.classList.remove('active'));
+langOptions.forEach(o=>o.addEventListener('click',()=>{setLanguage(o.dataset.lang);langDropdown.classList.remove('active');}));
+setLanguage(localStorage.getItem('nox_lang')||'de');
+
+const revealObserver=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');revealObserver.unobserve(e.target);}});
+},{threshold:.16,rootMargin:'0px 0px -80px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
+
+/* Animierter Sternenhimmel: ganz kleine funkelnde Sterne + Glow-Orbs */
+(()=>{
+  const canvas=document.getElementById('particles-canvas');
+  const ctx=canvas.getContext('2d');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let w,h,stars=[],orbs=[],raf=null;
+  const colors=['157,113,232','157,113,232','209,184,255','242,233,255'];
+
+  // Vierzackiger Funkelstern
+  function sparkle(x,y,r,rot){
+    ctx.save();
+    ctx.translate(x,y);
+    ctx.rotate(rot);
+    ctx.beginPath();
+    const q=r*.22;
+    ctx.moveTo(0,-r);
+    ctx.quadraticCurveTo(q,-q, r,0);
+    ctx.quadraticCurveTo(q, q, 0, r);
+    ctx.quadraticCurveTo(-q, q, -r,0);
+    ctx.quadraticCurveTo(-q,-q, 0,-r);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function resize(){
+    const dpr=Math.min(devicePixelRatio||1,2);
+    w=innerWidth;h=innerHeight;
+    canvas.width=w*dpr;canvas.height=h*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+
+    const count=Math.min(170,Math.max(70,Math.floor(w*h/11000)));
+    stars=Array.from({length:count},()=>({
+      x:Math.random()*w,y:Math.random()*h,
+      baseR:Math.random()*1.3+.5,        // ganz kleine Sterne
+      vx:(Math.random()-.5)*.35,
+      vy:-(0.18+Math.random()*0.5),      // Aufwärtsdrift
+      sway:Math.random()*.07+.03,        // Seitwärtswelle
+      alpha:Math.random()*.22+.12,
+      phase:Math.random()*Math.PI*2,
+      twinkle:Math.random()*.035+.02,    // schnelleres Funkeln
+      rot:Math.random()*Math.PI*2,
+      rotSpeed:(Math.random()-.5)*.025,  // langsame Drehung
+      flare:Math.random()<.2,
+      flarePhase:Math.random()*Math.PI*2,
+      color:colors[Math.floor(Math.random()*colors.length)]
+    }));
+
+    orbs=Array.from({length:8},()=>({
+      x:Math.random()*w,y:Math.random()*h,
+      r:40+Math.random()*90,
+      vx:(Math.random()-.5)*.14,vy:(Math.random()-.5)*.14,
+      alpha:Math.random()*.035+.015,
+      color:colors[Math.floor(Math.random()*3)]
+    }));
+    if(reduce) draw();
+  }
+
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+
+    // Weiche Glow-Orbs (Nebel)
+    for(const o of orbs){
+      if(!reduce){o.x+=o.vx;o.y+=o.vy;
+        if(o.x<-o.r)o.x=w+o.r;if(o.x>w+o.r)o.x=-o.r;
+        if(o.y<-o.r)o.y=h+o.r;if(o.y>h+o.r)o.y=-o.r;}
+      const g=ctx.createRadialGradient(o.x,o.y,0,o.x,o.y,o.r);
+      g.addColorStop(0,`rgba(${o.color},${o.alpha})`);
+      g.addColorStop(1,`rgba(${o.color},0)`);
+      ctx.fillStyle=g;
+      ctx.beginPath();ctx.arc(o.x,o.y,o.r,0,Math.PI*2);ctx.fill();
+    }
+
+    // Kleine Sterne: aufsteigend, schwingend, drehend, funkelnd
+    for(const s of stars){
+      if(!reduce){
+        s.phase+=s.twinkle;
+        s.flarePhase+=s.twinkle*.7;
+        s.rot+=s.rotSpeed;
+        s.x+=s.vx+Math.sin(s.phase*.8)*s.sway;
+        s.y+=s.vy;
+        if(s.y<-8){s.y=h+8;s.x=Math.random()*w;}
+        if(s.x<-8)s.x=w+8;if(s.x>w+8)s.x=-8;
+      }
+
+      const pulse=Math.sin(s.phase);
+      let r=Math.max(.5,s.baseR*(1+pulse*.55));
+      let a=s.alpha+pulse*.18;
+
+      // kurzes helles Aufblitzen einzelner Sterne
+      if(s.flare){
+        const f=Math.max(0,Math.sin(s.flarePhase));
+        if(f>.93){a+=(f-.93)*11;r+=(f-.93)*14;}
+      }
+      a=Math.min(1,Math.max(0,a));
+
+      ctx.fillStyle=`rgba(${s.color},${a})`;
+      sparkle(s.x,s.y,r,s.rot);
+
+      if(a>.42){
+        ctx.fillStyle=`rgba(${s.color},${a*.09})`;
+        sparkle(s.x,s.y,r*2.8,s.rot);
+      }
+    }
+  }
+
+  function loop(){draw();raf=requestAnimationFrame(loop);}
+  function start(){if(!reduce&&raf===null)loop();}
+  function stop(){if(raf!==null){cancelAnimationFrame(raf);raf=null;}}
+  addEventListener('resize',resize);
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+  resize();start();
+})();
+
+/* ============================================================
+   API – Verbindung zum Backend (fällt auf mailto: zurück)
+   ============================================================ */
+const API_BASE = location.protocol === "file:" ? "http://localhost:3000" : "";
+const apiAvailable = { value:false };
+async function apiFetch(path, options={}){
+  const r = await fetch(API_BASE+path,{headers:{"Content-Type":"application/json"},...options});
+  const j = await r.json();
+  if(!r.ok) throw new Error(j.error||"Serverfehler");
+  return j;
+}
+function todayISO(){ const d=new Date(); d.setMinutes(d.getMinutes()-d.getTimezoneOffset()); return d.toISOString().split('T')[0]; }
+
+/* Reservierung – Backend mit automatischer Slot-Vergabe, Fallback per E-Mail */
+(()=>{
+  const form=document.getElementById('reservationForm');
+  const note=document.getElementById('formNote');
+  const date=document.getElementById('date');
+  const time=document.getElementById('time');
+  const today=todayISO();
+  date.min=today;date.value=today;
+
+  async function refreshAvailability(){
+    try{
+      const data=await apiFetch('/api/availability?date='+encodeURIComponent(date.value));
+      apiAvailable.value=true;
+      const t=translations[currentLang]||translations.de;
+      time.innerHTML=`<option value="">${t.form_select}</option>`;
+      data.slots.forEach(s=>{
+        const o=document.createElement('option');
+        o.value=s.time;
+        o.textContent=s.time+(s.free>0?` · ${s.free} frei`:' · AUSGEBUCHT');
+        o.disabled=s.free<=0;
+        time.appendChild(o);
+      });
+      note.textContent='';
+    }catch(e){
+      apiAvailable.value=false;
+      const t=translations[currentLang]||translations.de;
+      time.innerHTML=`<option value="">${t.form_select}</option>`+
+        ["17:00","18:00","19:00","20:00","21:00","22:00","23:00","00:00","01:00","02:00","03:00","04:00"]
+          .map(v=>`<option value="${v}">${v}</option>`).join('');
+      note.textContent=t.reservation_offline||'';
+    }
+  }
+  date.addEventListener('change',refreshAvailability);
+  refreshAvailability();
+
+  form.addEventListener('submit',async e=>{
+    e.preventDefault();
+    const t=translations[currentLang]||translations.de;
+    const d=new FormData(form);
+    const name=String(d.get('name')).trim(),email=String(d.get('email')).trim();
+    const phone=String(d.get('phone')).trim(),people=String(d.get('guests'));
+    const dt=String(d.get('date')),tm=String(d.get('time')),msg=String(d.get('message')).trim();
+
+    if(apiAvailable.value){
+      try{
+        const result=await apiFetch('/api/reservations',{method:'POST',body:JSON.stringify({
+          name,email,phone,date:dt,time:tm,guests:people,message:msg,lang:currentLang
+        })});
+        note.innerHTML=`✅ ${t.reservation_ok} <strong>${result.reservation.code}</strong><br>${t.reservation_hint}`;
+        form.reset();date.value=today;refreshAvailability();
+        window.dispatchEvent(new CustomEvent('nox:reservation',{detail:result}));
+        return;
+      }catch(err){
+        note.textContent=`${t.reservation_error} ${err.message}`;
+      }
+    }
+
+    /* Fallback: E-Mail-Programm öffnen */
+    const subject=`${t.mail_subject} – ${dt} ${tm}`;
+    const body=`${t.mail_hello}\n\n${t.mail_body}\n\n${t.mail_name}: ${name}\n${t.mail_email}: ${email}\n${t.mail_phone}: ${phone}\n${t.mail_people}: ${people}\n${t.mail_date}: ${dt}\n${t.mail_time}: ${tm}\n${t.mail_note}: ${msg||'–'}\n\n${t.mail_regards}\n${name}`;
+    window.location.href=`mailto:hello@nox-kyrenia.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    note.textContent=t.alert_message;
+  });
+})();
+
+/* Chatbot Noxi */
+(()=>{
+  const panel=document.getElementById('chatPanel');
+  const launcher=document.getElementById('chatLauncher');
+  const closeBtn=document.getElementById('chatClose');
+  const form=document.getElementById('chatForm');
+  const input=document.getElementById('chatInput');
+  const messages=document.getElementById('chatMessages');
+  const quick=document.getElementById('chatQuick');
+  const status=document.getElementById('chatStatus');
+  let current='de';
+  let resFlow=null;    // geführter Reservierungs-Dialog
+  let offerRes=false;  // Noxi hat gerade eine Reservierung angeboten
+
+  const YES=/^(ja|jep|jupp|yes|yeah|sure|okay|ok|evet|tamam|да|давай|si)$/i;
+  const CANCEL=/abbrechen|cancel|iptal|отмен/i;
+
+  function parseDate(text){
+    const m=text.match(/\d{4}-\d{2}-\d{2}/);
+    if(m) return m[0];
+    const l=text.toLowerCase();
+    const d=new Date();
+    d.setMinutes(d.getMinutes()-d.getTimezoneOffset());
+    if(/heute|today|bugün|сегодня/.test(l)) return d.toISOString().split('T')[0];
+    if(/morgen|tomorrow|yarın|завтра/.test(l)){d.setDate(d.getDate()+1);return d.toISOString().split('T')[0];}
+    return null;
+  }
+
+  /* Getränke-Antworten direkt aus der gemeinsamen Karte erzeugen */
+  const DRINK_INTRO={
+    de:"🍹 Unsere komplette Getränkekarte:",
+    en:"🍹 Our full drinks menu:",
+    tr:"🍹 Tüm içecek menümüz:",
+    ru:"🍹 Наше полное меню напитков:"
+  };
+  function menuLang(lang){
+    return NOX_MENU && NOX_MENU[0] && NOX_MENU[0].title[lang] ? lang : "en";
+  }
+  function buildDrinksAnswer(lang){
+    if(typeof NOX_MENU==="undefined") return BOT[lang].drinks;
+    const l=menuLang(lang);
+    const lines=[DRINK_INTRO[lang]||DRINK_INTRO.de];
+    NOX_MENU.forEach(cat=>{
+      lines.push("\n"+cat.title[l]+":");
+      lines.push(cat.items.map(i=>`${i.name} (€${i.price})`).join(" · "));
+    });
+    return lines.join("\n");
+  }
+  function findDrink(text){
+    if(typeof NOX_MENU==="undefined") return null;
+    const q=normMatch(text);
+    for(const cat of NOX_MENU){
+      for(const item of cat.items){
+        const name=normMatch(item.name);
+        if(name.length>3 && q.includes(name)) return {item,cat};
+      }
+    }
+    return null;
+  }
+
+  /* Essens-Antworten direkt aus der Speisekarte (assets/nox-food.js) */
+  const FOOD_INTRO={
+    de:"🍴 Unsere kleine Speisekarte:",
+    en:"🍴 Our small food menu:",
+    tr:"🍴 Küçük yemek menümüz:",
+    ru:"🍴 Наше небольшое меню блюд:"
+  };
+  function buildFoodAnswer(lang){
+    if(typeof NOX_FOOD==="undefined") return BOT[lang].fallback;
+    const l=NOX_FOOD[0] && NOX_FOOD[0].title[lang] ? lang : "en";
+    const lines=[FOOD_INTRO[lang]||FOOD_INTRO.de];
+    NOX_FOOD.forEach(cat=>{
+      lines.push("\n"+cat.title[l]+":");
+      lines.push(cat.items.map(i=>`${i.name} (€${i.price})`).join(" · "));
+    });
+    return lines.join("\n");
+  }
+  function normMatch(s){
+    return String(s||"").toLowerCase()
+      .replace(/&/g," und ")
+      .replace(/[^\p{L}\p{N}\s]/gu," ")
+      .replace(/\s+/g," ").trim();
+  }
+  function findFood(text){
+    if(typeof NOX_FOOD==="undefined") return null;
+    const q=normMatch(text);
+    for(const cat of NOX_FOOD){
+      for(const item of cat.items){
+        const name=normMatch(item.name);
+        if(name.length>3 && q.includes(name)) return {item,cat};
+      }
+    }
+    return null;
+  }
+
+  function matchRules(text,lang){
+    const l=text.toLowerCase();
+    const rules=[
+      {keys:['essen','snack','speis','food','yemek','еда','knabber','käse','wurst','nuss','chips','gericht','sliders','nuggets'],reply:BOT[lang].food||BOT[lang].fallback},
+      {keys:['getränk','drink','cocktail','trinken','shot','bier','wein','kaffee','mocktail','içki','ички','напит','menü'],reply:BOT[lang].drinks},
+      {keys:['reserv','tisch','masa','брони','стол','buchen','rezerv','book','table'],reply:BOT[lang].reserve},
+      {keys:['zeit','uhr','öffn','saat','часы','врем','open','when','geöffnet','when are you','wann'],reply:BOT[lang].hours},
+      {keys:['wo seid','wo ist die bar','wo befindet','standort','adresse','kyrenia','girne','кирен','where are you','where is the bar','location','nordzypern','nord cyprus','neredesiniz'],reply:BOT[lang].location}
+    ];
+    for(const r of rules){if(r.keys.some(k=>l.includes(k)))return r.reply;}
+    return BOT[lang].fallback;
+  }
+
+  function addBubble(text,who){
+    const b=document.createElement('div');
+    b.className='chat-bubble '+who;
+    b.textContent=text;
+    messages.appendChild(b);
+    messages.scrollTop=messages.scrollHeight;
+  }
+
+  /* Geführter Reservierungs-Dialog – Noxi fragt alles selbst ab */
+  async function handleFlow(text,finish){
+    const b=BOT[current]||BOT.de, f=b.flow;
+    if(CANCEL.test(text)){resFlow=null;offerRes=false;return finish(f.cancel);}
+
+    const step=resFlow.step, data=resFlow.data;
+
+    if(step==='name'){data.name=text;resFlow.step='phone';return finish(f.phone);}
+    if(step==='phone'){data.phone=text;resFlow.step='email';return finish(f.email);}
+    if(step==='email'){
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(text)) return finish(f.email);
+      data.email=text;resFlow.step='date';return finish(f.date);
+    }
+    if(step==='date'){
+      const d=parseDate(text);
+      if(!d) return finish(f.badDate);
+      data.date=d;resFlow.step='time';
+      try{
+        const s=await apiFetch('/api/availability/summary?date='+encodeURIComponent(d));
+        return finish(f.time+(s.freeSlots.length?'\n'+b.availability+' '+d+': '+s.freeSlots.join(', '):'\n'+b.noSlots));
+      }catch(e){return finish(f.time);}
+    }
+    if(step==='time'){
+      const m=text.match(/(\d{1,2}):(\d{2})/);
+      if(!m) return finish(f.badTime.replace('{slots}',''));
+      const time=String(m[1]).padStart(2,'0')+':'+m[2];
+      try{
+        const s=await apiFetch('/api/availability?date='+encodeURIComponent(data.date));
+        if(!s.slots.some(x=>x.time===time&&x.free>0)){
+          const free=s.slots.filter(x=>x.free>0).map(x=>x.time).join(', ');
+          return finish(f.badTime.replace('{slots}',free||'–'));
+        }
+        data.time=time;resFlow.step='guests';return finish(f.guests);
+      }catch(e){return finish(b.fallback);}
+    }
+    if(step==='guests'){
+      const g=parseInt((text.match(/\d+/)||[])[0],10);
+      if(!g||g<1||g>10) return finish(f.guests);
+      data.guests=g;
+      try{
+        const result=await apiFetch('/api/chat/reservation',{method:'POST',body:JSON.stringify({
+          name:data.name,email:data.email,phone:data.phone,date:data.date,
+          time:data.time,guests:data.guests,message:'Reservierung über Noxi-Chat',lang:current
+        })});
+        resFlow=null;offerRes=false;
+        return finish(f.done.replace('{code}',result.reservation.code));
+      }catch(err){return finish('⚠️ '+err.message);}
+    }
+  }
+
+  async function respond(text){
+    const typing=document.createElement('div');
+    typing.className='typing';
+    typing.innerHTML='<span></span><span></span><span></span>';
+    messages.appendChild(typing);
+    messages.scrollTop=messages.scrollHeight;
+
+    const finish=answer=>{
+      typing.remove();
+      addBubble(answer,'bot');
+    };
+    const b=BOT[current]||BOT.de;
+    const lower=text.toLowerCase();
+
+    /* 0) Laufender Reservierungs-Dialog hat Vorrang */
+    if(resFlow) return handleFlow(text,finish);
+
+    /* 0b) Zustimmung zu Noxis Reservierungs-Angebot */
+    if(offerRes && YES.test(text.trim())){
+      offerRes=false;
+      resFlow={step:'name',data:{}};
+      return finish(b.flow.name);
+    }
+
+    /* 0b2) Bestimmtes Gericht erkannt – Antwort direkt aus der Speisekarte */
+    const food=findFood(text);
+    if(food){
+      const l=menuLang(current);
+      const d=food.item.desc[l]||food.item.desc.de||"";
+      return finish(`🍴 ${food.item.name} · € ${food.item.price}\n${d}\n\n${food.cat.title[l]||food.cat.title.de}`);
+    }
+
+    /* 0c) Bestimmtes Getränk erkannt – Antwort direkt aus der Karte */
+    const drink=findDrink(text);
+    if(drink){
+      const l=menuLang(current);
+      const d=drink.item.desc[l]||drink.item.desc.de||"";
+      return finish(`🍹 ${drink.item.name} · € ${drink.item.price}\n${d}\n\n${drink.cat.title[l]||drink.cat.title.de}`);
+    }
+
+    /* 1) Freie Zeiten – NUR öffentliche Infos, keine Gästedaten */
+    if(/frei|verfügbar|available|musait|müsait|свобод|slot|termin|bosh/.test(lower)){
+      const found=text.match(/\d{4}-\d{2}-\d{2}/);
+      const day=found?found[0]:todayISO();
+      try{
+        const data=await apiFetch('/api/availability/summary?date='+encodeURIComponent(day));
+        const answer=data.freeCount
+          ? `${b.availability} ${day}:\n`+data.freeSlots.join(', ')
+          : `${b.availability} ${day}:\n${b.noSlots}`;
+        offerRes=true;
+        return finish(answer+'\n\n'+b.flow.offer);
+      }catch(e){ return finish(b.fallback); }
+    }
+
+    /* 2) Bekannte Regel-Antwort */
+    const rule=matchRules(text,current);
+    if(rule!==b.fallback){
+      if(rule===b.reserve) offerRes=true;
+      return finish(rule===b.drinks ? rule+'\n\n'+b.followUp : rule);
+    }
+
+    /* 3) Vom Admin gelernte Antwort suchen */
+    try{
+      const m=await apiFetch('/api/chat/match?q='+encodeURIComponent(text));
+      if(m.found) return finish(m.answer+'\n\n'+b.followUp);
+    }catch(e){}
+
+    /* 4) Neue Frage lernen – aber nur einmal pro Frage pro Sitzung */
+    const key='nox_asked_'+btoa(unescape(encodeURIComponent(lower))).slice(0,40);
+    try{
+      if(!sessionStorage.getItem(key)){
+        await apiFetch('/api/chat/learn',{method:'POST',body:JSON.stringify({question:text,lang:current})});
+        sessionStorage.setItem(key,'1');
+        return finish(b.fallback+'\n\n'+b.learned);
+      }
+    }catch(e){}
+    finish(b.fallback);
+  }
+
+  function send(text){
+    const v=(text||input.value).trim();
+    if(!v)return;
+    addBubble(v,'user');input.value='';respond(v);
+  }
+
+  window.setupChat=function(){
+    current=currentLang;
+    const b=BOT[current]||BOT.de;
+    // Antworten immer aus den aktuellen Karten erzeugen
+    BOT[current].drinks=buildDrinksAnswer(current);
+    BOT[current].food=buildFoodAnswer(current);
+    status.textContent=b.status;
+    input.placeholder=b.placeholder;
+    messages.innerHTML='';
+    addBubble(b.greeting,'bot');
+    quick.innerHTML='';
+    b.chips.forEach(([label,question])=>{
+      const btn=document.createElement('button');
+      btn.type='button';btn.textContent=label;
+      btn.addEventListener('click',()=>{
+        if(question.endsWith('.html')){
+          window.location.href=question;
+          return;
+        }
+        if(question.startsWith('#')){
+          panel.classList.remove('open');
+          launcher.setAttribute('aria-expanded','false');
+          panel.setAttribute('aria-hidden','true');
+          const target=document.querySelector(question);
+          if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+          return;
+        }
+        send(question);
+      });
+      quick.appendChild(btn);
+    });
+  };
+  setupChat();
+
+  launcher.addEventListener('click',()=>{
+    const open=panel.classList.toggle('open');
+    launcher.setAttribute('aria-expanded',open);
+    panel.setAttribute('aria-hidden',!open);
+    if(open){input.focus();messages.scrollTop=messages.scrollHeight;}
+  });
+  closeBtn.addEventListener('click',()=>{
+    panel.classList.remove('open');
+    launcher.setAttribute('aria-expanded','false');
+    panel.setAttribute('aria-hidden','true');
+  });
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&panel.classList.contains('open'))closeBtn.click();
+  });
+  form.addEventListener('submit',e=>{e.preventDefault();send();});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOX Bar – Banner (1000 × 350 mm)</title>
+<style>
+  :root{
+    --bg:#0B0720; --surface:#25134D; --accent:#6A2FCB;
+    --glow:#9D71E8; --light:#D1B8FF; --lightest:#F2E9FF;
+    --gold:#FFD27A;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Inter",Arial,sans-serif;background:#1b1b22;padding:32px 16px;display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .toolbar{color:var(--lightest);font-size:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;}
+  .toolbar button{background:linear-gradient(135deg,var(--accent),var(--glow));color:#fff;border:none;border-radius:999px;padding:10px 20px;font:inherit;font-weight:600;cursor:pointer;box-shadow:0 0 18px rgba(157,113,232,.5);}
+  .toolbar button:hover{filter:brightness(1.15);}
+  .wrap{width:100%;max-width:1400px;overflow:auto;}
+  .banner{
+    width:1000mm;height:350mm;
+    background:
+      radial-gradient(circle at 18% 40%,rgba(106,47,203,.55),transparent 38%),
+      radial-gradient(circle at 82% 65%,rgba(157,113,232,.35),transparent 42%),
+      linear-gradient(120deg,#0B0720,#25134D 60%,#0B0720);
+    color:var(--lightest);position:relative;overflow:hidden;
+    display:flex;align-items:center;padding:0 60mm;
+    border:3px solid transparent;
+    transition:border-color .4s ease,box-shadow .4s ease;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  /* Goldener Glow-Rand beim Überfahren mit der Maus */
+  .banner:hover{
+    border-color:var(--gold);
+    box-shadow:
+      0 0 0 3px rgba(255,210,122,.6),
+      0 0 42px rgba(255,193,90,.75),
+      0 0 110px rgba(255,193,90,.4),
+      inset 0 0 60px rgba(255,193,90,.14);
+  }
+  .banner::before{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(209,184,255,.22) 2px,transparent 2px);
+    background-size:34px 34px;opacity:.45;
+  }
+  .banner::after{
+    content:"";position:absolute;top:-30%;right:-10%;width:60%;height:160%;
+    background:radial-gradient(ellipse,rgba(157,113,232,.28),transparent 62%);
+  }
+  .content{position:relative;z-index:1;display:flex;align-items:center;gap:40mm;width:100%;}
+  .text{flex:1;}
+  .kicker{font-size:13pt;letter-spacing:.35em;text-transform:uppercase;color:var(--glow);font-weight:700;text-shadow:0 0 16px rgba(157,113,232,.8);}
+  h1{font-size:88pt;line-height:.9;letter-spacing:.06em;margin:18px 0 22px;
+     text-shadow:0 0 24px rgba(242,233,255,.5),0 0 70px rgba(157,113,232,.9);}
+  h1 span{color:var(--glow);}
+  .sub{font-size:19pt;color:var(--light);letter-spacing:.04em;}
+  .info{text-align:right;font-size:13pt;line-height:1.9;color:var(--lightest);}
+  .info strong{display:block;font-size:18pt;color:var(--lightest);letter-spacing:.08em;}
+  .info small{font-size:11pt;color:var(--light);}
+  .star{width:70mm;height:70mm;filter:drop-shadow(0 0 22px rgba(157,113,232,.9));}
+  @page{size:1000mm 350mm;margin:0;}
+  @media print{
+    body{background:none;padding:0;}
+    .toolbar{display:none;}
+    .wrap{overflow:visible;max-width:none;}
+    .banner{width:1000mm;height:350mm;}
+  }
+</style>
+</head>
+<body>
+  <div class="toolbar">
+    <span>NOX Bar · Banner 1000 × 350 mm (skalierbar)</span>
+    <button onclick="window.print()">🖨 Als PDF / Banner drucken</button>
+  </div>
+  <div class="wrap">
+    <div class="banner">
+      <div class="content">
+        <div class="text">
+          <div class="kicker">Kyrenia · Nordzypern</div>
+          <h1>NOX <span>BAR</span></h1>
+          <div class="sub">Wo die Nacht lebendig wird. Drinks · Musik · Glow.</div>
+        </div>
+        <div class="info">
+          <strong>ERLEBE DIE NACHT</strong>
+          Täglich 17:00 – 05:00 Uhr<br>
+          Tischreservierung möglich<br>
+          Inhaber: Imran Malik<br>
+          <small>hello@nox-kyrenia.com</small>
+        </div>
+        <svg class="star" viewBox="0 0 100 100" aria-hidden="true">
+          <defs><linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F2E9FF"/><stop offset="100%" stop-color="#B98BEE"/>
+          </linearGradient></defs>
+          <path d="M50 9 L61 36 L90 38 L68 57 L75 86 L50 70 L25 86 L32 57 L10 38 L39 36 Z"
+                fill="url(#bg2)" stroke="#9D71E8" stroke-width="8" stroke-linejoin="round"/>
+          <ellipse cx="41" cy="50" rx="4.6" ry="6" fill="#25134D"/>
+          <ellipse cx="59" cy="50" rx="4.6" ry="6" fill="#25134D"/>
+          <path d="M45 60 Q50 66 55 60" fill="none" stroke="#25134D" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

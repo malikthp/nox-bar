@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOX Bar – E-Mail-Signatur</title>
+<style>
+  body{font-family:"Inter",Arial,sans-serif;background:#1b1b22;padding:32px 16px;display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .toolbar{color:#F2E9FF;font-size:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;text-align:center;}
+  .toolbar button{background:linear-gradient(135deg,#6A2FCB,#9D71E8);color:#fff;border:none;border-radius:999px;padding:10px 20px;font:inherit;font-weight:600;cursor:pointer;}
+  .toolbar button:hover{filter:brightness(1.15);}
+  .preview{background:#fff;padding:28px;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.5);max-width:100%;overflow:auto;}
+  .hint{color:#D1B8FF;font-size:12.5px;max-width:620px;text-align:center;line-height:1.6;}
+</style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <span>NOX Bar · E-Mail-Signatur</span>
+    <button onclick="copySignature()">📋 HTML kopieren</button>
+  </div>
+
+  <div class="preview" id="signature">
+    <table cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;border-collapse:collapse;">
+      <tr>
+        <!-- Stern / Logo -->
+        <td valign="top" style="padding:0 14px 0 0;">
+          <div style="width:56px;height:56px;border-radius:50%;background:#25134D;text-align:center;line-height:56px;font-size:28px;color:#D1B8FF;border:2px solid #9D71E8;">⭐</div>
+        </td>
+        <!-- Trennlinie -->
+        <td valign="top" style="padding:0 14px 0 0;">
+          <div style="width:2px;height:56px;background:#9D71E8;"></div>
+        </td>
+        <!-- Text -->
+        <td valign="top" style="padding:0;">
+          <div style="font-size:18px;font-weight:bold;color:#6A2FCB;letter-spacing:2px;">NOX.BAR</div>
+          <div style="font-size:15px;font-weight:bold;color:#25134D;padding-top:6px;">Imran Malik</div>
+          <div style="font-size:12px;color:#6A2FCB;letter-spacing:1px;text-transform:uppercase;">Inhaber</div>
+          <div style="font-size:12px;color:#555;padding-top:7px;line-height:1.6;">
+            Kyrenia, Nordzypern<br>
+            E-Mail: <a href="mailto:hello@nox-kyrenia.com" style="color:#6A2FCB;text-decoration:none;">hello@nox-kyrenia.com</a><br>
+            Telefon: <span style="color:#999;">+90 ... ... .. ..</span>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <p class="hint">Klicke auf „HTML kopieren" und füge die Signatur in den Signatur-Einstellungen deines E-Mail-Programms im HTML-Modus ein (z. B. Outlook, Thunderbird, Gmail-Einstellungen). Die Platzhalter für E-Mail und Telefon kannst du direkt in der Tabelle oben ändern.</p>
+
+  <script>
+    function copySignature() {
+      const html = document.getElementById("signature").innerHTML;
+      if (navigator.clipboard && window.ClipboardItem) {
+        navigator.clipboard.write([new ClipboardItem({
+          "text/html": new Blob([html], { type: "text/html" }),
+          "text/plain": new Blob(["NOX Bar – Imran Malik – Kyrenia, Nordzypern"], { type: "text/plain" })
+        })]).then(() => alert("Signatur als HTML kopiert!"))
+          .catch(() => fallbackCopy(html));
+      } else {
+        fallbackCopy(html);
+      }
+    }
+
+    function fallbackCopy(html) {
+      const ta = document.createElement("textarea");
+      ta.value = html;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+      alert("Signatur kopiert!");
+    }
+  </script>
+</body>
+</html>

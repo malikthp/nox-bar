@@ -1,0 +1,23 @@
+# NOX Bar – Deployment für Render (kostenloser Web Service)
+# Nach dem Verbinden des GitHub-Repos erkennt Render diese Datei automatisch.
+services:
+  - type: web
+    name: nox-bar
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install
+    startCommand: node server/server.js
+    healthCheckPath: /api/availability?date=2026-11-20
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NOX_ADMIN_TOKEN
+        generateValue: true   # Token im Render-Dashboard kopieren!
+      - key: NOX_OWNER_EMAIL
+        value: hello@nox-kyrenia.com
+      - key: NOX_NOTIFICATION_BCC
+        value: hello@nox-kyrenia.com
+      - key: NOX_NOTIFICATION_TO
+        value: noreply@nox-kyrenia.com
+      # WEB3FORMS_KEY / SMTP_* optional – ohne Provider landen Mails in data/notifications.log

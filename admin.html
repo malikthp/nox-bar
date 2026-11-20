@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOX Bar – Admin</title>
+<style>
+  :root{--bg:#0B0720;--surface:#25134D;--accent:#6A2FCB;--glow:#9D71E8;--light:#D1B8FF;--lightest:#F2E9FF;--gold:#FFD27A;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:"Inter",Arial,sans-serif;background:radial-gradient(circle at top,var(--surface),var(--bg) 60%);color:var(--lightest);min-height:100vh;padding:32px 20px;line-height:1.6;}
+  .wrap{max-width:1100px;margin:0 auto;}
+  h1{font-size:2rem;letter-spacing:.1em;text-shadow:0 0 20px var(--glow);margin-bottom:6px;}
+  .sub{color:var(--light);margin-bottom:24px;font-size:.9rem;}
+  .card{background:rgba(37,19,77,.7);border:1px solid rgba(157,113,232,.3);border-radius:14px;padding:24px;margin-bottom:22px;box-shadow:0 0 30px rgba(106,47,203,.25);}
+  h2{font-size:1.2rem;margin-bottom:16px;color:var(--gold);letter-spacing:.05em;}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;}
+  label{display:flex;flex-direction:column;gap:5px;font-size:.8rem;color:var(--light);flex:1;min-width:180px;}
+  input,textarea,select{width:100%;background:rgba(242,233,255,.08);border:1px solid rgba(157,113,232,.4);border-radius:8px;padding:10px 12px;color:var(--lightest);font:inherit;font-size:.9rem;}
+  textarea{min-height:80px;resize:vertical;}
+  button{background:linear-gradient(135deg,var(--accent),var(--glow));color:#fff;border:none;border-radius:999px;padding:11px 22px;font:inherit;font-weight:600;cursor:pointer;}
+  button:hover{filter:brightness(1.15);}
+  button.small{padding:6px 14px;font-size:.75rem;background:transparent;border:1px solid var(--glow);}
+  .msg{margin-top:12px;color:var(--gold);font-size:.85rem;min-height:20px;}
+  table{width:100%;border-collapse:collapse;font-size:.85rem;}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid rgba(157,113,232,.2);vertical-align:top;}
+  th{color:var(--glow);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;}
+  .badge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.7rem;font-weight:700;}
+  .ok{background:rgba(124,224,168,.18);color:#7CE0A8;}
+  .pending{background:rgba(255,210,122,.18);color:var(--gold);}
+  .cancelled{background:rgba(255,120,120,.18);color:#ff9a9a;}
+  .question{background:rgba(157,113,232,.1);border-left:3px solid var(--glow);padding:10px 14px;border-radius:6px;margin-bottom:10px;}
+  .question .meta{font-size:.72rem;color:var(--light);opacity:.8;}
+  .qhead{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;}
+  .qactions{display:flex;gap:6px;flex-wrap:wrap;flex:0 0 auto;}
+  button.danger{border-color:#ff8a8a;color:#ff8a8a;}
+  button.danger:hover{background:rgba(255,138,138,.15);}
+  .edit-box{margin-top:12px;display:flex;flex-direction:column;gap:10px;}
+  .edit-box textarea{min-height:70px;}
+  .empty{color:var(--light);opacity:.7;font-size:.9rem;}
+  @media(max-width:700px){table{font-size:.75rem;}th,td{padding:7px 5px;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>NOX BAR · ADMIN</h1>
+  <p class="sub">Reservierungen verwalten &amp; Noxi beim Lernen helfen</p>
+
+  <div class="card">
+    <h2>Zugang</h2>
+    <div class="row">
+      <label>Admin-Token
+        <input type="password" id="token" placeholder="nox-admin-2026">
+      </label>
+      <button onclick="load()">Daten laden</button>
+      <button class="small" onclick="downloadCalendar()">📅 Kalender (ICS)</button>
+    </div>
+    <div class="msg" id="msg"></div>
+  </div>
+
+  <div class="card">
+    <h2>Proton Calendar</h2>
+    <p class="sub" id="googleStatus" style="margin-bottom:14px;">Status wird geladen …</p>
+    <p class="sub" style="margin-bottom:14px;opacity:.8;">
+      Proton unterstützt keine API/CalDAV. Neue Reservierungen erzeugen automatisch
+      eine ICS-Datei, die an die Benachrichtigungs-E-Mail angehängt wird – dort mit
+      einem Klick in Proton Calendar importierbar.
+    </p>
+    <div class="row">
+      <button onclick="googleTest()">🔌 ICS prüfen</button>
+      <button class="small" onclick="downloadCalendar()">📅 ICS herunterladen</button>
+      <button class="small" onclick="googleSync()">🔄 ICS neu erzeugen</button>
+    </div>
+    <p class="msg" id="googleMsg"></p>
+  </div>
+
+  <div class="card">
+    <h2>Noxi neues Wissen beibringen</h2>
+    <div class="row">
+      <label>Frage<input id="qaQuestion" placeholder="z. B. Habt ihr veganne Optionen?"></label>
+      <label>Antwort<input id="qaAnswer" placeholder="Antwort, die Noxi geben soll"></label>
+      <label style="max-width:120px">Sprache
+        <select id="qaLang"><option value="de">DE</option><option value="en">EN</option><option value="tr">TR</option><option value="ru">RU</option></select>
+      </label>
+    </div>
+    <div class="row" style="margin-top:12px"><button onclick="addQA()">＋ Noxi beibringen</button></div>
+  </div>
+
+  <div class="card">
+    <h2>Reservierungen</h2>
+    <div id="reservations"><p class="empty">Bitte zuerst Daten laden.</p></div>
+  </div>
+
+  <div class="card">
+    <h2>Noxis gelernte Fragen</h2>
+    <div id="learned"><p class="empty">Bitte zuerst Daten laden.</p></div>
+  </div>
+</div>
+
+<script>
+const API="";
+const $=id=>document.getElementById(id);
+let learnedData=[];
+$("token").value=localStorage.getItem("nox_admin_token")||"";
+
+function token(){return $("token").value.trim();}
+function note(t){$("msg").textContent=t;}
+async function api(path,options={}){
+  const url=API+path+(path.includes("?")?"&":"?")+"token="+encodeURIComponent(token());
+  const r=await fetch(url,{headers:{"Content-Type":"application/json"},...options});
+  const j=await r.json();
+  if(!r.ok) throw new Error(j.error||"Fehler");
+  return j;
+}
+
+async function load(){
+  localStorage.setItem("nox_admin_token",token());
+  try{
+    const d=await api("/api/admin/data");
+    renderReservations(d.reservations||[]);
+    learnedData=d.learned||[];
+    renderLearned(learnedData);
+    note(`Geladen: ${(d.reservations||[]).length} Reservierungen, ${(d.learned||[]).length} Fragen.`);
+    loadGoogleStatus();
+  }catch(e){note("Fehler: "+e.message);}
+}
+
+function renderReservations(list){
+  const el=$("reservations");
+  if(!list.length){el.innerHTML='<p class="empty">Noch keine Reservierungen.</p>';return;}
+  el.innerHTML=`<table><thead><tr><th>Code</th><th>Gast</th><th>Datum / Zeit</th><th>Gäste</th><th>Kontakt</th><th>Status</th><th></th></tr></thead><tbody>`+
+    list.slice().reverse().map(r=>`<tr>
+      <td><strong>${esc(r.code)}</strong></td>
+      <td>${esc(r.name)}</td>
+      <td>${esc(r.date)} · ${esc(r.time)}</td>
+      <td>${esc(r.guests)}</td>
+      <td>${esc(r.email)}<br><span style="opacity:.7">${esc(r.phone)}</span></td>
+      <td><span class="badge ${r.status==='confirmed'?'ok':'cancelled'}">${esc(r.status)}</span></td>
+      <td>${r.status!=='cancelled'?`<button class="small" onclick="cancel('${r.code}')">Stornieren</button>`:''}</td>
+    </tr>`).join("")+`</tbody></table>`;
+}
+
+function langSelect(id,current){
+  return `<select id="${id}">${['de','en','tr','ru'].map(l=>
+    `<option value="${l}" ${l===current?'selected':''}>${l.toUpperCase()}</option>`).join('')}</select>`;
+}
+
+function renderLearned(list){
+  const el=$("learned");
+  if(!list.length){el.innerHTML='<p class="empty">Noch keine Fragen gelernt.</p>';return;}
+  el.innerHTML=list.slice().reverse().map(i=>`
+    <div class="question" id="q_${i.id}">
+      <div class="qhead">
+        <div style="flex:1">
+          <div><strong>${esc(i.question)}</strong></div>
+          <div class="meta">${esc(i.lang||'de')} · ${i.asked||1}× gefragt · ${i.hits||0}× beantwortet · ${esc(i.status)}${i.source==='admin'?' · manuell':''}</div>
+        </div>
+        <div class="qactions">
+          <button class="small" onclick="editQA('${i.id}')">✏️ Bearbeiten</button>
+          <button class="small danger" onclick="deleteQA('${i.id}')">🗑 Löschen</button>
+        </div>
+      </div>
+      <div id="body_${i.id}">
+        ${i.answer?`<div style="margin-top:6px;color:var(--light)">${esc(i.answer)}</div>`:`
+          <div class="row" style="margin-top:10px">
+            <label>Antwort<input id="a_${i.id}" placeholder="Antwort für Noxi"></label>
+            <button onclick="answer('${i.id}')">Speichern</button>
+          </div>`}
+      </div>
+    </div>`).join("");
+}
+
+function editQA(id){
+  const item=learnedData.find(x=>x.id===id);
+  if(!item)return;
+  $("body_"+id).innerHTML=`
+    <div class="edit-box">
+      <label>Frage<input id="eq_${id}" value="${esc(item.question)}"></label>
+      <label>Antwort<textarea id="ea_${id}">${esc(item.answer||'')}</textarea></label>
+      <label style="max-width:140px">Sprache${langSelect('el_'+id,item.lang||'de')}</label>
+      <div class="row">
+        <button onclick="saveQA('${id}')">💾 Speichern</button>
+        <button class="small" onclick="load()">Abbrechen</button>
+      </div>
+    </div>`;
+}
+
+async function saveQA(id){
+  const q=$("eq_"+id).value.trim(), a=$("ea_"+id).value.trim();
+  if(!q||!a){note("Bitte Frage und Antwort ausfüllen.");return;}
+  try{
+    await api("/api/admin/qa/update",{method:"POST",body:JSON.stringify({
+      id,question:q,answer:a,lang:$("el_"+id).value
+    })});
+    note("Änderungen gespeichert – Noxi weiß jetzt Bescheid.");
+    load();
+  }catch(e){note("Fehler: "+e.message);}
+}
+
+async function deleteQA(id){
+  const item=learnedData.find(x=>x.id===id);
+  if(!confirm(`Diese Frage wirklich löschen?\n\n${item?item.question:''}`))return;
+  try{
+    await api("/api/admin/qa/delete",{method:"POST",body:JSON.stringify({id})});
+    note("Frage gelöscht – Noxi kennt sie nicht mehr.");
+    load();
+  }catch(e){note("Fehler: "+e.message);}
+}
+
+async function answer(id){
+  const a=$("a_"+id).value.trim();
+  if(!a){note("Bitte eine Antwort eingeben.");return;}
+  try{await api("/api/admin/answer",{method:"POST",body:JSON.stringify({id,answer:a})});note("Antwort gespeichert – Noxi weiß jetzt Bescheid!");load();}
+  catch(e){note("Fehler: "+e.message);}
+}
+
+async function cancel(code){
+  if(!confirm("Reservierung "+code+" wirklich stornieren?"))return;
+  try{await api(`/api/admin/reservations/${code}/cancel`,{method:"POST"});note("Reservierung storniert – Slot ist wieder frei.");load();}
+  catch(e){note("Fehler: "+e.message);}
+}
+
+async function loadGoogleStatus(){
+  try{
+    const s=await api("/api/admin/calendar/status");
+    $("googleStatus").textContent=`✅ ${s.provider} · ${s.events} ${s.events===1?'Termin':'Termine'} in ICS · ${s.mode}`;
+    $("googleStatus").style.color="#7CE0A8";
+  }catch(e){$("googleStatus").textContent="Status nicht abrufbar: "+e.message;}
+}
+
+async function googleTest(){
+  try{
+    const r=await api("/api/admin/calendar/test",{method:"POST"});
+    $("googleMsg").textContent=`✅ ICS gültig – ${r.provider}, ${r.events} Termine.`;
+  }catch(e){$("googleMsg").textContent="❌ "+e.message;}
+}
+
+async function googleSync(){
+  try{
+    const r=await api("/api/admin/calendar/sync",{method:"POST"});
+    $("googleMsg").textContent=`ICS neu erzeugt – ${r.synced} Reservierungen enthalten.`;
+    load();
+  }catch(e){$("googleMsg").textContent="❌ "+e.message;}
+}
+
+async function addQA(){
+  const q=$("qaQuestion").value.trim(), a=$("qaAnswer").value.trim();
+  if(!q||!a){note("Bitte Frage UND Antwort eingeben.");return;}
+  try{
+    await api("/api/admin/qa",{method:"POST",body:JSON.stringify({question:q,answer:a,lang:$("qaLang").value})});
+    $("qaQuestion").value="";$("qaAnswer").value="";
+    note("Noxi hat etwas Neues gelernt! Ich habe dir eine E-Mail-Benachrichtigung geschickt.");
+    load();
+  }catch(e){note("Fehler: "+e.message);}
+}
+
+function downloadCalendar(){
+  window.location.href="/api/admin/calendar.ics?token="+encodeURIComponent(token());
+  note("Kalender wird heruntergeladen – kann in Google Calendar / Outlook importiert werden.");
+}
+
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NOX Bar – QR Codes</title>
+<style>
+  :root{--bg:#0B0720;--surface:#25134D;--glow:#9D71E8;--light:#D1B8FF;--lightest:#F2E9FF;--gold:#FFD27A;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',Arial,sans-serif;background:radial-gradient(ellipse at top,var(--surface),var(--bg) 65%);color:var(--lightest);padding:40px 20px;text-align:center;}
+  h1{font-size:2rem;letter-spacing:.2em;text-shadow:0 0 20px var(--glow);}
+  .sub{color:var(--light);margin:8px 0 30px;font-size:.9rem;}
+  .grid{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;max-width:1100px;margin:0 auto;}
+  .card{background:rgba(37,19,77,.75);border:1px solid rgba(157,113,232,.35);border-radius:16px;padding:24px;width:300px;box-shadow:0 0 30px rgba(106,47,203,.3);}
+  .card img{width:230px;height:230px;border-radius:10px;background:#F2E9FF;}
+  .card h2{margin:16px 0 4px;font-size:1.15rem;color:var(--gold);letter-spacing:.08em;}
+  .card p{font-size:.75rem;color:var(--light);word-break:break-all;}
+  button{margin-top:28px;background:linear-gradient(135deg,#6A2FCB,#9D71E8);color:#fff;border:none;border-radius:999px;padding:12px 26px;font:inherit;font-weight:600;cursor:pointer;}
+  .hinweis{max-width:700px;margin:26px auto 0;font-size:.8rem;color:var(--light);opacity:.8;line-height:1.7;}
+  @media print{
+    body{background:#fff;color:#111;padding:10px;}
+    h1{color:#2A1454;text-shadow:none;}
+    .sub,.hinweis{color:#444;}
+    .card{background:#fff;border:2px solid #6A2FCB;box-shadow:none;}
+    .card h2{color:#5A2A9A;} .card p{color:#333;}
+    button{display:none;}
+    @page{size:A4 landscape;margin:12mm;}
+  }
+</style>
+</head>
+<body>
+  <h1>NOX BAR · QR CODES</h1>
+  <p class="sub">Scannen → Karte öffnen · Auch zum Ausdrucken für Tische/Theke geeignet</p>
+
+  <div class="grid">
+    <div class="card">
+      <img src="QR-Speisekarte.png" alt="QR Speisekarte">
+      <h2>SPEISEKARTE</h2>
+      <p>nox-kyrenia.netlify.app/speisekarte.html</p>
+    </div>
+    <div class="card">
+      <img src="QR-Getraenkekarte.png" alt="QR Getränkekarte">
+      <h2>GETRÄNKEKARTE</h2>
+      <p>nox-kyrenia.netlify.app/getraenkekarte.html</p>
+    </div>
+    <div class="card">
+      <img src="QR-Homepage.png" alt="QR Homepage">
+      <h2>HOMEPAGE</h2>
+      <p>nox-kyrenia.netlify.app</p>
+    </div>
+  </div>
+
+  <button onclick="window.print()">🖨 QR-Bogen drucken</button>
+  <p class="hinweis">
+    Wichtig: Die Codes zeigen auf <strong>https://nox-kyrenia.netlify.app</strong>.
+    Sie funktionieren erst, wenn die Website unter dieser Adresse veröffentlicht wurde.
+    Falls du eine andere Domain nutzt, sag mir den Link – dann erzeuge ich die Codes neu.
+  </p>
+</body>
+</html>
