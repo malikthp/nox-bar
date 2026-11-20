@@ -44,7 +44,7 @@ wenn in einem neuen Chat an der NOX-Bar-Website weitergearbeitet wird.
 | `data/anhaenge/` | Einzel-ICS pro Reservierung (bei fehlendem SMTP) |
 | `print/*.html` | Flyer A4, Banner 1000×350 mm, Brief, Visitenkarten |
 | `signatur/email-signatur.html` | E-Mail-Signatur mit Kopier-Funktion |
-| `assets/NOX-Bar-Wallpaper*.svg/.png` | Wallpaper, u. a. 4K-Version mit NOX BAR / „Die Nacht gehört dir." / „Own the night." nach User-Vorlage |
+| `assets/NOX-Bar-Wallpaper*.svg/.png` | Wallpaper: 4K-PC-Version, Text-Version, iPhone-Version (1179×2556), alle im NOX-Look mit NOX BAR / „Die Nacht gehört dir." / „Own the night." |
 | `start-server.bat`, `autostart.vbs` | Manueler Start / Windows-Autostart (Verknüpfung liegt im Startup-Ordner) |
 | `upload-to-github.ps1` | Lädt alle Dateien per API hoch (Token aus `credentials/github-token.txt`) |
 | `token-datei-oeffnen.bat` | Öffnet die Token-Datei in Notepad |
