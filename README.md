@@ -79,6 +79,7 @@ und nur für SMTP nötig – ohne Installation läuft alles über Web3Forms oder
 | `assets/NOX-Bar-Wallpaper.svg` | Desktop-Hintergrundbild, 3840 × 2160, skalierbar |
 | `assets/NOX-Bar-Wallpaper-Text.svg` | Wallpaper mit NOX BAR + „Die Nacht gehört dir." / „Own the night." |
 | `assets/NOX-Bar-Wallpaper-Text.png` | Gleiches Wallpaper als 4K-PNG (3840 × 2160) |
+| `assets/NOX-Bar-Wallpaper-iPhone.png/.svg` | iPhone-Wallpaper (1179 × 2556) im NOX-Look |
 | `print/*.html` | Flyer (A4), Banner (1000 × 350 mm), Brief, Visitenkarten |
 | `signatur/email-signatur.html` | E-Mail-Signatur mit „HTML kopieren" |
 
