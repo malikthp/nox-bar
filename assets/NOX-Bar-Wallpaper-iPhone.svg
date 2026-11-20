@@ -33,21 +33,21 @@
   </g>
 
   <g text-anchor="middle">
-    <text x="589" y="1060" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
+    <text x="589" y="1240" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
           font-size="170" letter-spacing="8" fill="#6A2FCB" filter="url(#glowBig)" opacity=".85">NOX BAR</text>
-    <text x="589" y="1060" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
+    <text x="589" y="1240" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
           font-size="170" letter-spacing="8" fill="#9D71E8" filter="url(#glowMid)" opacity=".9">NOX BAR</text>
-    <text x="589" y="1060" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
+    <text x="589" y="1240" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
           font-size="170" letter-spacing="8" fill="#F2E9FF">NOX BAR</text>
 
-    <line x1="330" y1="1150" x2="848" y2="1150" stroke="#9D71E8" stroke-width="2" opacity=".8"/>
-    <circle cx="589" cy="1150" r="5" fill="#9D71E8"/>
+    <line x1="330" y1="1330" x2="848" y2="1330" stroke="#9D71E8" stroke-width="2" opacity=".8"/>
+    <circle cx="589" cy="1330" r="5" fill="#9D71E8"/>
 
-    <text x="589" y="1300" font-family="'DM Sans',Arial,sans-serif" font-size="54"
+    <text x="589" y="1480" font-family="'DM Sans',Arial,sans-serif" font-size="54"
           letter-spacing="4" fill="#D1B8FF">DIE NACHT</text>
-    <text x="589" y="1370" font-family="'DM Sans',Arial,sans-serif" font-size="54"
+    <text x="589" y="1550" font-family="'DM Sans',Arial,sans-serif" font-size="54"
           letter-spacing="4" fill="#D1B8FF">GEHÖRT DIR.</text>
-    <text x="589" y="1470" font-family="'DM Sans',Arial,sans-serif" font-size="38"
+    <text x="589" y="1650" font-family="'DM Sans',Arial,sans-serif" font-size="38"
           font-style="italic" letter-spacing="3" fill="#D1B8FF" opacity=".85">Own the night.</text>
   </g>
 
