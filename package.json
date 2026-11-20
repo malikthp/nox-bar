@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "NOX Bar Website mit Reservierungs-Backend und lernendem Chatbot",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "start": "node server/server.js",
     "dev": "node server/server.js"

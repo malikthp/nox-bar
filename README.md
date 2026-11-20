@@ -65,7 +65,7 @@ und nur für SMTP nötig – ohne Installation läuft alles über Web3Forms oder
 |---|---|
 | `index.html` | Website (4 Sprachen, Theme-Toggle, Sternenhimmel, Stern-Chatbot mit Reservierungs-Dialog, Glow-Banner) |
 | `admin.html` | Admin: Reservierungen, Q&A-Training, Kalender-Download |
-| `getraenkekarte.html` | Komplette Getränkekarte: 8 Kategorien, 46 Getränke, DE/EN/TR, druckbar |
+| `getraenkekarte.html` | Komplette Getränkekarte: 8 Kategorien, 46 Getränke, DE/EN/TR/RU, druckbar |
 | `assets/nox-menu.js` | **Einzige Datenquelle** für Getränke/Preise – wird von Karte UND Noxi geladen |
 | `speisekarte.html` | Kleine Speisekarte: 5 Kategorien/17 Gerichte, DE/EN/TR, druckbar |
 | `assets/nox-food.js` | Datenquelle für die Speisekarte – wird von Karte UND Noxi geladen |

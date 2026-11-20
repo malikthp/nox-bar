@@ -1,36 +1,85 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NOX Bar – QR Codes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#0B0720;--surface:#25134D;--glow:#9D71E8;--lightest:#F2E9FF;}
+  :root{--bg:#0B0720;--surface:#25134D;--glow:#9D71E8;--light:#D1B8FF;--lightest:#F2E9FF;--gold:#FFD27A;}
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'DM Sans',Arial,sans-serif;background:radial-gradient(ellipse at top,var(--surface),var(--bg) 65%);color:var(--lightest);padding:50px 20px;text-align:center;}
-  h1{font-size:2rem;letter-spacing:.2em;text-shadow:0 0 20px var(--glow);margin-bottom:30px;}
-  h1 a{color:inherit;text-decoration:none;transition:text-shadow .2s ease;}
-  h1 a:hover{text-shadow:0 0 30px var(--glow),0 0 60px var(--glow);}
-  .grid{display:flex;gap:34px;justify-content:center;flex-wrap:wrap;max-width:1000px;margin:0 auto;}
-  .qr img{width:270px;height:270px;border-radius:12px;background:var(--lightest);display:block;}
-  button{margin-top:34px;background:linear-gradient(135deg,#6A2FCB,#9D71E8);color:#fff;border:none;border-radius:999px;padding:12px 26px;font:inherit;font-weight:600;cursor:pointer;}
+  body{
+    font-family:'DM Sans',Arial,sans-serif;
+    background:radial-gradient(ellipse at 50% -10%,#25134D 0%,#0B0720 62%);
+    color:var(--lightest);min-height:100vh;padding:54px 20px;text-align:center;position:relative;overflow:hidden;
+  }
+  /* dezenter Sternenhimmel */
+  body::before{
+    content:"";position:absolute;inset:0;pointer-events:none;opacity:.45;
+    background-image:radial-gradient(rgba(209,184,255,.25) 1px,transparent 1px);
+    background-size:22px 22px;
+  }
+  .wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;}
+  h1{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(2.6rem,7vw,4.2rem);letter-spacing:.12em;
+    text-shadow:0 0 18px rgba(242,233,255,.5),0 0 50px var(--glow);}
+  h1 a{color:inherit;text-decoration:none;transition:text-shadow .25s ease;}
+  h1 a:hover{text-shadow:0 0 28px var(--lightest),0 0 70px var(--glow);}
+  .eyebrow{font-size:.75rem;letter-spacing:.32em;text-transform:uppercase;color:var(--glow);margin-top:10px;}
+  .rule{width:70px;height:2px;background:var(--glow);box-shadow:0 0 14px var(--glow);margin:20px auto 40px;}
+  .grid{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;}
+  .card{
+    background:linear-gradient(150deg,rgba(37,19,77,.9),rgba(11,7,32,.92));
+    border:1px solid rgba(157,113,232,.35);border-radius:22px;padding:26px 26px 22px;width:290px;
+    box-shadow:0 0 35px rgba(106,47,203,.28);transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease;
+  }
+  .card:hover{transform:translateY(-6px);border-color:var(--gold);
+    box-shadow:0 0 0 2px rgba(255,210,122,.35),0 0 45px rgba(255,193,90,.35);}
+  .frame{background:var(--lightest);border-radius:14px;padding:12px;display:inline-block;box-shadow:0 0 22px rgba(157,113,232,.35);}
+  .frame img{width:216px;height:216px;display:block;border-radius:6px;}
+  .name{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.7rem;letter-spacing:.16em;margin-top:18px;color:var(--lightest);}
+  .sub{font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--light);opacity:.75;margin-top:2px;}
+  button{margin-top:38px;background:linear-gradient(135deg,#6A2FCB,#9D71E8);color:#fff;border:none;border-radius:999px;
+    padding:13px 28px;font:inherit;font-weight:600;cursor:pointer;box-shadow:0 0 22px rgba(157,113,232,.5);}
+  button:hover{filter:brightness(1.15);}
   @media print{
-    body{background:#fff;padding:10px;}
+    body{background:#fff;color:#111;padding:8px;}
+    body::before{display:none;}
     h1{color:#2A1454;text-shadow:none;}
+    .eyebrow{color:#5A2A9A;}.rule{background:#6A2FCB;box-shadow:none;}
+    .card{background:#fff;border:2px solid #6A2FCB;box-shadow:none;}
+    .name{color:#2A1454;}.sub{color:#444;}
     button{display:none;}
-    @page{size:A4 landscape;margin:14mm;}
+    @page{size:A4 landscape;margin:12mm;}
   }
 </style>
 </head>
 <body>
+<div class="wrap">
   <h1><a href="https://nox-bar.onrender.com/">NOX BAR</a></h1>
+  <div class="eyebrow">Scan · Explore · Enjoy</div>
+  <div class="rule"></div>
 
   <div class="grid">
-    <img src="QR-Homepage.png" alt="QR Homepage">
-    <img src="QR-Getraenkekarte.png" alt="QR Getränkekarte">
-    <img src="QR-Speisekarte.png" alt="QR Speisekarte">
+    <div class="card">
+      <div class="frame"><img src="QR-Homepage.png" alt="QR code to homepage"></div>
+      <div class="name">HOME</div>
+      <div class="sub">nox-bar.onrender.com</div>
+    </div>
+    <div class="card">
+      <div class="frame"><img src="QR-Getraenkekarte.png" alt="QR code to drinks menu"></div>
+      <div class="name">DRINKS MENU</div>
+      <div class="sub">All cocktails &amp; drinks</div>
+    </div>
+    <div class="card">
+      <div class="frame"><img src="QR-Speisekarte.png" alt="QR code to food menu"></div>
+      <div class="name">FOOD MENU</div>
+      <div class="sub">Snacks &amp; small bites</div>
+    </div>
   </div>
 
-  <button onclick="window.print()">🖨 QR-Bogen drucken</button>
+  <button onclick="window.print()">🖨 Print QR sheet</button>
+</div>
 </body>
 </html>
