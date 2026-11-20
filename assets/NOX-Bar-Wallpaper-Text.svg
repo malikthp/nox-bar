@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3840 2160" width="3840" height="2160" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!--Purple glow wie im Beispielbild: hell oben, dunkel an den Rändern-->
+    <radialGradient id="bg" cx="50%" cy="32%" r="78%">
+      <stop offset="0%"   stop-color="#4B2A90"/>
+      <stop offset="38%"  stop-color="#2C1759"/>
+      <stop offset="75%"  stop-color="#150C33"/>
+      <stop offset="100%" stop-color="#0B0720"/>
+    </radialGradient>
+
+    <!--Weicher Lichtschein hinter NOX BAR-->
+    <radialGradient id="halo">
+      <stop offset="0%"   stop-color="#9D71E8" stop-opacity="0.35"/>
+      <stop offset="55%"  stop-color="#6A2FCB" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#6A2FCB" stop-opacity="0"/>
+    </radialGradient>
+
+    <!--Kleine Funkelsterne-->
+    <g id="sparkle">
+      <path d="M0 -10 Q1.6 -1.6 10 0 Q1.6 1.6 0 10 Q-1.6 1.6 -10 0 Q-1.6 -1.6 0 -10 Z" fill="#D1B8FF"/>
+    </g>
+
+    <filter id="softGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="45"/></filter>
+  </defs>
+
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+  <ellipse cx="1920" cy="760" rx="1500" ry="700" fill="url(#halo)"/>
+
+  <!-- WINZIGE STERNE / FUNKELEFFEKTE -->
+  <g opacity="0.55">
+    <g transform="translate(270,430) rotate(18) scale(0.9)"><use href="#sparkle"/></g>
+    <g transform="translate(3520,360) rotate(-25) scale(0.7)"><use href="#sparkle"/></g>
+    <g transform="translate(3650,1120) rotate(12) scale(0.8)"><use href="#sparkle"/></g>
+    <g transform="translate(690,1130) rotate(-15) scale(0.6)"><use href="#sparkle"/></g>
+    <g transform="translate(2780,1290) rotate(22) scale(0.9)"><use href="#sparkle"/></g>
+    <g transform="translate(1050,1580) rotate(-8) scale(0.6)"><use href="#sparkle"/></g>
+    <g transform="translate(3320,1740) rotate(30) scale(0.7)"><use href="#sparkle"/></g>
+    <g transform="translate(2120,1820) rotate(-20) scale(0.5)"><use href="#sparkle"/></g>
+  </g>
+  <g fill="#D1B8FF" opacity="0.35">
+    <circle cx="520" cy="900" r="1.6"/><circle cx="3210" cy="720" r="1.4"/>
+    <circle cx="1340" cy="420" r="1.2"/><circle cx="2610" cy="1560" r="1.5"/>
+    <circle cx="880" cy="1760" r="1.3"/><circle cx="2980" cy="1950" r="1.2"/>
+  </g>
+
+  <!-- NOX BAR – wie im Beispiel -->
+  <g text-anchor="middle">
+    <text x="1920" y="820" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
+          font-size="430" letter-spacing="6" fill="#9D71E8" filter="url(#softGlow)" opacity="0.75">NOX BAR</text>
+    <text x="1920" y="820" font-family="'Bebas Neue',Impact,'Arial Black',sans-serif"
+          font-size="430" letter-spacing="6" fill="#F2E9FF">NOX BAR</text>
+
+    <text x="1920" y="1260" font-family="Arial,'Helvetica Neue',sans-serif"
+          font-size="150" font-weight="300" letter-spacing="2" fill="#E8DFF7">Die Nacht gehört dir.</text>
+
+    <text x="1920" y="1430" font-family="Arial,'Helvetica Neue',sans-serif"
+          font-size="74" font-style="italic" letter-spacing="2" fill="#C9B8E8" opacity="0.85">Own the night.</text>
+  </g>
+</svg>
