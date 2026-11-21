@@ -124,16 +124,25 @@
 [data-theme="light"] .promo-text p{color:var(--text-secondary);}
 
 /* NOX 2.0:Buttons und Karten-Glow komplett in Lila */
-[data-theme="light"] .btn-primary{background:#341C64;border-color:#5E3A9B;color:#fff;}
+[data-theme="light"] .btn-primary{
+  background:#341C64;
+  border:2px solid #2E145E !important;
+  color:#fff;
+  box-shadow:0 0 0 1px rgba(46,20,94,.9),0 0 22px rgba(46,20,94,.75),inset 0 0 14px rgba(46,20,94,.4);
+}
 [data-theme="light"] .btn-ghost{background:#341C64;border-color:#5E3A9B;color:#fff;}
 [data-theme="light"] .btn-primary::before{background:linear-gradient(90deg,var(--accent),var(--glow));}
-[data-theme="light"] .btn-primary:hover{box-shadow:0 0 34px var(--accent-glow),0 0 60px var(--accent-glow);}
+[data-theme="light"] .btn-primary:hover{
+  border-color:#3A1878 !important;
+  box-shadow:0 0 0 2px rgba(46,20,94,.9),0 0 40px rgba(46,20,94,.85),0 0 80px rgba(46,20,94,.6),inset 0 0 24px rgba(46,20,94,.5);
+}
 
 [data-theme="light"] .btn-ghost span,[data-theme="light"] .btn-primary span{color:#FFFFFF;}
 [data-theme="light"] .btn-ghost:hover{
   background:linear-gradient(135deg,var(--accent),var(--glow));
-  border-color:var(--gold);color:#FFFFFF;box-shadow:0 0 24px var(--gold-glow);
+  border-color:#FFD27A;color:#FFD27A !important;box-shadow:0 0 0 1px #FFD27A,0 0 30px #FFD27A,0 0 60px rgba(255,210,122,.5);
 }
+[data-theme="light"] .btn-ghost:hover span{color:#FFD27A !important;}
 [data-theme="light"] .promo-cta{background:linear-gradient(135deg,var(--accent),var(--glow));color:#fff;box-shadow:0 0 24px var(--accent-glow);}
 /* NOX 2.0: gelber Glow hinter dem Reservierungs-Button beim Hover */
 [data-theme="light"] .reservation .submit:hover{
